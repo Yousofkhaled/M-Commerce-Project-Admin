@@ -17,6 +17,12 @@
 		84E0D6E22AE9311400FCB2F7 /* M_Commerce_AdminTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D6E12AE9311400FCB2F7 /* M_Commerce_AdminTests.swift */; };
 		84E0D6EC2AE9311400FCB2F7 /* M_Commerce_AdminUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D6EB2AE9311400FCB2F7 /* M_Commerce_AdminUITests.swift */; };
 		84E0D6EE2AE9311400FCB2F7 /* M_Commerce_AdminUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D6ED2AE9311400FCB2F7 /* M_Commerce_AdminUITestsLaunchTests.swift */; };
+		B25EA17C2AEDB25A00963558 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EA17B2AEDB25A00963558 /* HomeModel.swift */; };
+		B25EA17E2AEDB27E00963558 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EA17D2AEDB27E00963558 /* HomeViewModel.swift */; };
+		B25EA1802AEDB43E00963558 /* UIImageView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EA17F2AEDB43E00963558 /* UIImageView + Extensions.swift */; };
+		B25EA1842AEDB67B00963558 /* AvailavleProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EA1832AEDB67B00963558 /* AvailavleProductsViewModel.swift */; };
+		B25EA1862AEDB68D00963558 /* AvailableProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EA1852AEDB68D00963558 /* AvailableProductsModel.swift */; };
+		B25EA18A2AEDB87C00963558 /* AllProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25EA1892AEDB87C00963558 /* AllProductsViewModel.swift */; };
 		B29300F52AEA711E000A6997 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29300F32AEA711E000A6997 /* HomeViewController.swift */; };
 		B29300F82AEA7171000A6997 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29300F72AEA7171000A6997 /* HomeViewController.xib */; };
 		B29300FA2AEA7183000A6997 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29300F92AEA7183000A6997 /* TabController.swift */; };
@@ -91,6 +97,12 @@
 		84E0D6E72AE9311400FCB2F7 /* M-Commerce-AdminUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "M-Commerce-AdminUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E0D6EB2AE9311400FCB2F7 /* M_Commerce_AdminUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M_Commerce_AdminUITests.swift; sourceTree = "<group>"; };
 		84E0D6ED2AE9311400FCB2F7 /* M_Commerce_AdminUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M_Commerce_AdminUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B25EA17B2AEDB25A00963558 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		B25EA17D2AEDB27E00963558 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B25EA17F2AEDB43E00963558 /* UIImageView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extensions.swift"; sourceTree = "<group>"; };
+		B25EA1832AEDB67B00963558 /* AvailavleProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailavleProductsViewModel.swift; sourceTree = "<group>"; };
+		B25EA1852AEDB68D00963558 /* AvailableProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailableProductsModel.swift; sourceTree = "<group>"; };
+		B25EA1892AEDB87C00963558 /* AllProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllProductsViewModel.swift; path = "M-Commerce-Admin/Screens/AvailableProducts/AvailableModel/AllProductsViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		B29300F32AEA711E000A6997 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B29300F72AEA7171000A6997 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		B29300F92AEA7183000A6997 /* TabController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
@@ -183,6 +195,7 @@
 			children = (
 				B29300F12AEA70ED000A6997 /* Screens */,
 				84E0D6C72AE9311000FCB2F7 /* AppDelegate.swift */,
+				B25EA17F2AEDB43E00963558 /* UIImageView + Extensions.swift */,
 				84E0D6C92AE9311000FCB2F7 /* SceneDelegate.swift */,
 				84E0D6CB2AE9311000FCB2F7 /* ViewController.swift */,
 				84E0D6CD2AE9311000FCB2F7 /* Main.storyboard */,
@@ -210,6 +223,38 @@
 				84E0D6ED2AE9311400FCB2F7 /* M_Commerce_AdminUITestsLaunchTests.swift */,
 			);
 			path = "M-Commerce-AdminUITests";
+			sourceTree = "<group>";
+		};
+		B25EA1792AEDB17400963558 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B25EA17D2AEDB27E00963558 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B25EA17A2AEDB24200963558 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B25EA17B2AEDB25A00963558 /* HomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B25EA1812AEDB65500963558 /* AvailableViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B25EA1832AEDB67B00963558 /* AvailavleProductsViewModel.swift */,
+			);
+			path = AvailableViewModel;
+			sourceTree = "<group>";
+		};
+		B25EA1822AEDB66300963558 /* AvailableModel */ = {
+			isa = PBXGroup;
+			children = (
+				B25EA1852AEDB68D00963558 /* AvailableProductsModel.swift */,
+			);
+			path = AvailableModel;
 			sourceTree = "<group>";
 		};
 		B29300F12AEA70ED000A6997 /* Screens */ = {
@@ -258,6 +303,8 @@
 		B29301092AEA74B1000A6997 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B25EA17A2AEDB24200963558 /* Model */,
+				B25EA1792AEDB17400963558 /* ViewModel */,
 				B29300F22AEA70FE000A6997 /* View */,
 			);
 			path = Home;
@@ -266,6 +313,8 @@
 		B293010A2AEA74CC000A6997 /* AvailableProducts */ = {
 			isa = PBXGroup;
 			children = (
+				B25EA1822AEDB66300963558 /* AvailableModel */,
+				B25EA1812AEDB65500963558 /* AvailableViewModel */,
 				B293010B2AEA74DD000A6997 /* View */,
 			);
 			path = AvailableProducts;
@@ -365,7 +414,6 @@
 		B293013F2AEBE36C000A6997 /* AllProducts */ = {
 			isa = PBXGroup;
 			children = (
-				DC5664342AECC8D3003297FE /* Model */,
 				DC5664332AECC8C8003297FE /* ViewModel */,
 				B29301402AEBE378000A6997 /* View */,
 			);
@@ -392,15 +440,9 @@
 		DC5664332AECC8C8003297FE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B25EA1892AEDB87C00963558 /* AllProductsViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		DC5664342AECC8D3003297FE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		DC5664352AECC904003297FE /* ViewModel */ = {
@@ -635,22 +677,28 @@
 				B29301392AEBDDF8000A6997 /* DiscountCodeViewController.swift in Sources */,
 				B29301282AEA8221000A6997 /* AddProductViewController.swift in Sources */,
 				B29300F52AEA711E000A6997 /* HomeViewController.swift in Sources */,
+				B25EA1842AEDB67B00963558 /* AvailavleProductsViewModel.swift in Sources */,
 				B29301072AEA7290000A6997 /* Constans.swift in Sources */,
 				DC5664402AECD2BC003297FE /* AddPriceRulediscountViewModel.swift in Sources */,
 				B29300FA2AEA7183000A6997 /* TabController.swift in Sources */,
 				B29301322AEA8711000A6997 /* PriceRulesCell.swift in Sources */,
 				B293012E2AEA85FA000A6997 /* PriceRulesViewController.swift in Sources */,
+				B25EA1802AEDB43E00963558 /* UIImageView + Extensions.swift in Sources */,
 				B293011D2AEA8113000A6997 /* OptionCollectionViewCell.swift in Sources */,
+				B25EA17E2AEDB27E00963558 /* HomeViewModel.swift in Sources */,
 				DC5664432AECEFC1003297FE /* DiscountModel.swift in Sources */,
 				DC56642B2AEC6FC3003297FE /* AddPriceRuleVC.swift in Sources */,
 				84E0D6D22AE9311000FCB2F7 /* M_Commerce_Admin.xcdatamodeld in Sources */,
+				B25EA18A2AEDB87C00963558 /* AllProductsViewModel.swift in Sources */,
 				84E0D6CC2AE9311000FCB2F7 /* ViewController.swift in Sources */,
 				B293011F2AEA8113000A6997 /* ProductInfoViewController.swift in Sources */,
 				B293010E2AEA760C000A6997 /* AvailableProductsVC.swift in Sources */,
 				B29301222AEA8113000A6997 /* sectionHeader.swift in Sources */,
 				DC56644C2AECFB07003297FE /* PriceRuleViewModel.swift in Sources */,
 				B29301122AEA7652000A6997 /* AvailableProductsCell.swift in Sources */,
+				B25EA17C2AEDB25A00963558 /* HomeModel.swift in Sources */,
 				84E0D6C82AE9311000FCB2F7 /* AppDelegate.swift in Sources */,
+				B25EA1862AEDB68D00963558 /* AvailableProductsModel.swift in Sources */,
 				DC5664462AECF0C2003297FE /* DiscountCodeViewModel.swift in Sources */,
 				84E0D6CA2AE9311000FCB2F7 /* SceneDelegate.swift in Sources */,
 			);
