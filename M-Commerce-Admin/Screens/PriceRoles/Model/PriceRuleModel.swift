@@ -7,7 +7,7 @@
 
 import Foundation
 struct PriceRuleContainer : Codable{
-    let price_rule : PriceRuleModel
+    let price_rules : [PriceRuleModel]
 }
 struct  PriceRuleModel : Codable {
     var  id : Int
@@ -16,6 +16,7 @@ struct  PriceRuleModel : Codable {
     var usage_limit : Int
     var starts_at : String
     var ends_at : String
+    var title : String
     var prerequisite_subtotal_range : SubtotalRange
 }
 struct SubtotalRange : Codable{

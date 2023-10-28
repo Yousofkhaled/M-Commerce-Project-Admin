@@ -10,13 +10,17 @@ import UIKit
 class PriceRulesViewController: UIViewController {
     // MARK: - Variables
     @IBOutlet weak var offersCollectionView: UICollectionView!
-    
+    var priceRuleViewModel = PriceRuleViewModel()
     // MARK: - LifeCycle
     override func viewDidLoad() {
         
         super.viewDidLoad()
         configureCollectionView()
         navigationItem.title = "Price Rules"
+        priceRuleViewModel.bindresultToHomeViewController = {
+            self.offersCollectionView.reloadData()
+        }
+        priceRuleViewModel.getAllPriceRules()
     }
     
     private func configureCollectionView() {
@@ -37,7 +41,7 @@ class PriceRulesViewController: UIViewController {
 extension PriceRulesViewController:UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return priceRuleViewModel.getPriceRulesNumber()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -46,6 +50,7 @@ extension PriceRulesViewController:UICollectionViewDataSource {
         cell.layer.cornerRadius = 20
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;
+        cell.configureCellUI(discountName: priceRuleViewModel.getpriceRuleTitle(index: indexPath.row), PriceDiscountBody: priceRuleViewModel.setFourthLabel(index: indexPath.row), startDate: priceRuleViewModel.getStartDate(index: indexPath.row), endDate: priceRuleViewModel.getEndDate(index: indexPath.row), usageNumber: priceRuleViewModel.getMaxUsage(index: indexPath.row))
         return cell
     }
     

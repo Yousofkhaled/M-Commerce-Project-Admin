@@ -56,18 +56,41 @@ class NetworkManager {
                 }
             }
         }
-    
-//    func getPriceRule() {
-//          APIManager.shared.request(.get, "https://9ec35bc5ffc50f6db2fd830b0fd373ac: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@ios-q1-new-capital-2023.myshopify.com//admin/api/2023-10/price_rules/1405087318332.json") { (result: Result<PriceMRuleModel, Error>) in
-//              switch result {
-//              case .success(let priceRule):
-//                  self.priceRule = priceRule
-//                
-//              case .failure(let error):
-//                  print("Request failed with error: \(error)")
-//              }
-//          }
-//      }
+    func getDiscountCodes <T:Codable> (priceRuleId: Int,Handler : @escaping (T?,Error?) -> Void){
+        let URL = "https://a6cdf13b3aee85b07964a84ccc1bd762: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@ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/price_rules/\(priceRuleId)/discount_codes.json"
+        Alamofire.AF.request(URL,method: Alamofire.HTTPMethod.get).response { data in
+            if let validData = data.data {
+                do{
+                    let dataRetivied = try JSONDecoder().decode(T.self, from: validData)
+                    print("Success")
+                Handler(dataRetivied, nil)
+                
+                }catch let error{
+                  print ("this is an error :\(error)")
+                    Handler(nil, error)
+                }
+            }
+            else{print("There is error in casting data")}
+        }
+    }
+    func getPriceRule <T:Codable> (Handler : @escaping (T?,Error?) -> Void){
+        let URL = "https://a6cdf13b3aee85b07964a84ccc1bd762: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@ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/price_rules.json"
+        Alamofire.AF.request(URL,method: Alamofire.HTTPMethod.get).response { data in
+            if let validData = data.data {
+                do{
+                    let dataRetivied = try JSONDecoder().decode(T.self, from: validData)
+                    print("Success")
+                Handler(dataRetivied, nil)
+                
+                }catch let error{
+                  print ("this is an error :\(error)")
+                    Handler(nil, error)
+                }
+            }
+            else{print("There is error in casting data")}
+        }
+    }
+
     
     
 }
