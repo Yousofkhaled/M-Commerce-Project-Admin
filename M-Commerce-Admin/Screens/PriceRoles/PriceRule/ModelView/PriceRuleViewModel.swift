@@ -49,7 +49,8 @@ class PriceRuleViewModel {
         return AllPriceRule?.price_rules[index].ends_at ?? "2023-12-31T11:00:00-05:00"
     }
     func setFourthLabel(index : Int) -> String {
-        return AllPriceRule?.price_rules[index].value ?? "50.0%" + "After" + (AllPriceRule?.price_rules[index].prerequisite_subtotal_range.greater_than_or_equal_to ?? "1000$")
+        return AllPriceRule?.price_rules[index].value ?? "50.0%" + "After"
+//        + (AllPriceRule?.price_rules[index].prerequisite_subtotal_range?.greater_than_or_equal_to ?? "1000$")
     }
     func getMaxUsage(index : Int) -> String {
         return String(AllPriceRule?.price_rules[index].usage_limit ?? 10)
