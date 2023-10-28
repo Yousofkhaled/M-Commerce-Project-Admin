@@ -17,5 +17,8 @@ class DicountCodeCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    func configureCellUI(dicountCodeTitle : String , numberOfUsage : Int ) {
+        dicountCodeLabel.text = dicountCodeTitle
+        usageCount.text = String(numberOfUsage)
+    }
 }

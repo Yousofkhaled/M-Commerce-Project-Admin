@@ -11,13 +11,17 @@ class DiscountCodeViewController: UIViewController {
     // MARK: - Variables
     @IBOutlet weak var discountCollectionView: UICollectionView!
     
-    
+    var discountViewModel = DiscountCodeViewModel()
     // MARK: - LifeCycle
     override func viewDidLoad() {
         
         super.viewDidLoad()
         configureCollectionView()
         navigationItem.title = "Price Rules"
+        discountViewModel.bindresultToHomeViewController = {
+            self.discountCollectionView.reloadData()
+        }
+        discountViewModel.getDiscountCodes(priceRuleId: nil)
     }
     
     private func configureCollectionView() {
@@ -38,7 +42,7 @@ class DiscountCodeViewController: UIViewController {
 extension DiscountCodeViewController:UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return discountViewModel.getDiscountCodesNumber()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -47,6 +51,7 @@ extension DiscountCodeViewController:UICollectionViewDataSource {
         cell.layer.cornerRadius = 20
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;
+        cell.configureCellUI(dicountCodeTitle: discountViewModel.getDiscountCodesTitle(index: indexPath.row), numberOfUsage: discountViewModel.getNumberOfUsages(index: indexPath.row))
         return cell
     }
     

@@ -53,7 +53,10 @@
 		DC5664382AECC91F003297FE /* PriceRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5664372AECC91F003297FE /* PriceRuleModel.swift */; };
 		DC56643B2AECD027003297FE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC56643A2AECD027003297FE /* Kingfisher */; };
 		DC56643E2AECD0DD003297FE /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = DC56643D2AECD0DD003297FE /* Cosmos */; };
-		DC5664402AECD2BC003297FE /* PriceRuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56643F2AECD2BC003297FE /* PriceRuleViewModel.swift */; };
+		DC5664402AECD2BC003297FE /* AddPriceRulediscountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56643F2AECD2BC003297FE /* AddPriceRulediscountViewModel.swift */; };
+		DC5664432AECEFC1003297FE /* DiscountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5664422AECEFC0003297FE /* DiscountModel.swift */; };
+		DC5664462AECF0C2003297FE /* DiscountCodeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5664452AECF0C2003297FE /* DiscountCodeViewModel.swift */; };
+		DC56644C2AECFB07003297FE /* PriceRuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56644B2AECFB07003297FE /* PriceRuleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,7 +124,10 @@
 		DC56642A2AEC6FC3003297FE /* AddPriceRuleVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPriceRuleVC.xib; sourceTree = "<group>"; };
 		DC56642E2AEC7BC8003297FE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		DC5664372AECC91F003297FE /* PriceRuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRuleModel.swift; sourceTree = "<group>"; };
-		DC56643F2AECD2BC003297FE /* PriceRuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRuleViewModel.swift; sourceTree = "<group>"; };
+		DC56643F2AECD2BC003297FE /* AddPriceRulediscountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPriceRulediscountViewModel.swift; sourceTree = "<group>"; };
+		DC5664422AECEFC0003297FE /* DiscountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountModel.swift; sourceTree = "<group>"; };
+		DC5664452AECF0C2003297FE /* DiscountCodeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCodeViewModel.swift; sourceTree = "<group>"; };
+		DC56644B2AECFB07003297FE /* PriceRuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRuleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,9 +324,8 @@
 		B293012A2AEA85D5000A6997 /* PriceRoles */ = {
 			isa = PBXGroup;
 			children = (
+				DC5664492AECFABB003297FE /* PriceRule */,
 				DC5664362AECC90F003297FE /* Model */,
-				DC5664352AECC904003297FE /* ViewModel */,
-				B293012B2AEA85DD000A6997 /* View */,
 			);
 			path = PriceRoles;
 			sourceTree = "<group>";
@@ -332,8 +337,6 @@
 				B293012D2AEA85FA000A6997 /* PriceRulesViewController.xib */,
 				B29301302AEA8711000A6997 /* PriceRulesCell.swift */,
 				B29301312AEA8711000A6997 /* PriceRulesCell.xib */,
-				DC5664292AEC6FC3003297FE /* AddPriceRuleVC.swift */,
-				DC56642A2AEC6FC3003297FE /* AddPriceRuleVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -341,6 +344,8 @@
 		B29301342AEBDDC0000A6997 /* DiscountCode */ = {
 			isa = PBXGroup;
 			children = (
+				DC5664442AECF099003297FE /* ViewModel */,
+				DC5664412AECEFAA003297FE /* model */,
 				B29301352AEBDDCA000A6997 /* View */,
 			);
 			path = DiscountCode;
@@ -401,7 +406,7 @@
 		DC5664352AECC904003297FE /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DC56643F2AECD2BC003297FE /* PriceRuleViewModel.swift */,
+				DC56643F2AECD2BC003297FE /* AddPriceRulediscountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -412,6 +417,58 @@
 				DC5664372AECC91F003297FE /* PriceRuleModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC5664412AECEFAA003297FE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				DC5664422AECEFC0003297FE /* DiscountModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		DC5664442AECF099003297FE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DC5664452AECF0C2003297FE /* DiscountCodeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DC5664472AECFA86003297FE /* AddPriceRule */ = {
+			isa = PBXGroup;
+			children = (
+				DC5664482AECFAA3003297FE /* View */,
+				DC5664352AECC904003297FE /* ViewModel */,
+			);
+			path = AddPriceRule;
+			sourceTree = "<group>";
+		};
+		DC5664482AECFAA3003297FE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DC5664292AEC6FC3003297FE /* AddPriceRuleVC.swift */,
+				DC56642A2AEC6FC3003297FE /* AddPriceRuleVC.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DC5664492AECFABB003297FE /* PriceRule */ = {
+			isa = PBXGroup;
+			children = (
+				DC5664472AECFA86003297FE /* AddPriceRule */,
+				DC56644A2AECFAE4003297FE /* ModelView */,
+				B293012B2AEA85DD000A6997 /* View */,
+			);
+			path = PriceRule;
+			sourceTree = "<group>";
+		};
+		DC56644A2AECFAE4003297FE /* ModelView */ = {
+			isa = PBXGroup;
+			children = (
+				DC56644B2AECFB07003297FE /* PriceRuleViewModel.swift */,
+			);
+			path = ModelView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -579,19 +636,22 @@
 				B29301282AEA8221000A6997 /* AddProductViewController.swift in Sources */,
 				B29300F52AEA711E000A6997 /* HomeViewController.swift in Sources */,
 				B29301072AEA7290000A6997 /* Constans.swift in Sources */,
-				DC5664402AECD2BC003297FE /* PriceRuleViewModel.swift in Sources */,
+				DC5664402AECD2BC003297FE /* AddPriceRulediscountViewModel.swift in Sources */,
 				B29300FA2AEA7183000A6997 /* TabController.swift in Sources */,
 				B29301322AEA8711000A6997 /* PriceRulesCell.swift in Sources */,
 				B293012E2AEA85FA000A6997 /* PriceRulesViewController.swift in Sources */,
 				B293011D2AEA8113000A6997 /* OptionCollectionViewCell.swift in Sources */,
+				DC5664432AECEFC1003297FE /* DiscountModel.swift in Sources */,
 				DC56642B2AEC6FC3003297FE /* AddPriceRuleVC.swift in Sources */,
 				84E0D6D22AE9311000FCB2F7 /* M_Commerce_Admin.xcdatamodeld in Sources */,
 				84E0D6CC2AE9311000FCB2F7 /* ViewController.swift in Sources */,
 				B293011F2AEA8113000A6997 /* ProductInfoViewController.swift in Sources */,
 				B293010E2AEA760C000A6997 /* AvailableProductsVC.swift in Sources */,
 				B29301222AEA8113000A6997 /* sectionHeader.swift in Sources */,
+				DC56644C2AECFB07003297FE /* PriceRuleViewModel.swift in Sources */,
 				B29301122AEA7652000A6997 /* AvailableProductsCell.swift in Sources */,
 				84E0D6C82AE9311000FCB2F7 /* AppDelegate.swift in Sources */,
+				DC5664462AECF0C2003297FE /* DiscountCodeViewModel.swift in Sources */,
 				84E0D6CA2AE9311000FCB2F7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

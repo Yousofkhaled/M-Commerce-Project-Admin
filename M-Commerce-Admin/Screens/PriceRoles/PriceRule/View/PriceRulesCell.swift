@@ -19,5 +19,12 @@ class PriceRulesCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    func configureCellUI(discountName : String,PriceDiscountBody: String , startDate : String ,endDate : String , usageNumber : String ){
+        discount.text = discountName
+        priceDiscount.text = PriceDiscountBody
+        startDiscount.text = startDate
+        endDiscount.text = endDate
+        numberOfUsage.text = usageNumber
+    }
 
 }

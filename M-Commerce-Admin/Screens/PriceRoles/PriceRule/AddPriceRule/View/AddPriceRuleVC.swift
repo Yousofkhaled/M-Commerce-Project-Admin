@@ -16,7 +16,7 @@ class AddPriceRuleVC: UIViewController {
     @IBOutlet weak var usagelimitField: UITextField!
     @IBOutlet weak var minimumSubtotalField: UITextField!
     @IBOutlet weak var discountAmountField: UITextField!
-    var view_model = PriceRuleViewModel()
+    var view_model = AddPriceRulediscountViewModel()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +25,7 @@ class AddPriceRuleVC: UIViewController {
 
     @IBAction func DonePressed(_ sender: UIButton) {
     
-        var arr : [String] = [discountAmountField.text! ,minimumSubtotalField.text!,usagelimitField.text!,TitleField.text!]
+        let arr : [String] = [discountAmountField.text! ,minimumSubtotalField.text!,usagelimitField.text!,TitleField.text!]
         var okay = true
         for s in arr {
             if(s.isEmpty){
