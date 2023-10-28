@@ -46,6 +46,14 @@
 		B293013E2AEBE07D000A6997 /* DicountCodeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B293013C2AEBE07D000A6997 /* DicountCodeCell.xib */; };
 		B29301432AEBE397000A6997 /* AllProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29301412AEBE397000A6997 /* AllProductViewController.swift */; };
 		B29301442AEBE397000A6997 /* AllProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B29301422AEBE397000A6997 /* AllProductViewController.xib */; };
+		DC56642B2AEC6FC3003297FE /* AddPriceRuleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5664292AEC6FC3003297FE /* AddPriceRuleVC.swift */; };
+		DC56642C2AEC6FC3003297FE /* AddPriceRuleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC56642A2AEC6FC3003297FE /* AddPriceRuleVC.xib */; };
+		DC56642F2AEC7BC8003297FE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56642E2AEC7BC8003297FE /* NetworkManager.swift */; };
+		DC5664322AECC26D003297FE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DC5664312AECC26D003297FE /* Alamofire */; };
+		DC5664382AECC91F003297FE /* PriceRuleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5664372AECC91F003297FE /* PriceRuleModel.swift */; };
+		DC56643B2AECD027003297FE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC56643A2AECD027003297FE /* Kingfisher */; };
+		DC56643E2AECD0DD003297FE /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = DC56643D2AECD0DD003297FE /* Cosmos */; };
+		DC5664402AECD2BC003297FE /* PriceRuleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56643F2AECD2BC003297FE /* PriceRuleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +117,11 @@
 		B293013C2AEBE07D000A6997 /* DicountCodeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DicountCodeCell.xib; sourceTree = "<group>"; };
 		B29301412AEBE397000A6997 /* AllProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProductViewController.swift; sourceTree = "<group>"; };
 		B29301422AEBE397000A6997 /* AllProductViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AllProductViewController.xib; sourceTree = "<group>"; };
+		DC5664292AEC6FC3003297FE /* AddPriceRuleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPriceRuleVC.swift; sourceTree = "<group>"; };
+		DC56642A2AEC6FC3003297FE /* AddPriceRuleVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddPriceRuleVC.xib; sourceTree = "<group>"; };
+		DC56642E2AEC7BC8003297FE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		DC5664372AECC91F003297FE /* PriceRuleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRuleModel.swift; sourceTree = "<group>"; };
+		DC56643F2AECD2BC003297FE /* PriceRuleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRuleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +129,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC56643E2AECD0DD003297FE /* Cosmos in Frameworks */,
+				DC56643B2AECD027003297FE /* Kingfisher in Frameworks */,
+				DC5664322AECC26D003297FE /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +209,7 @@
 		B29300F12AEA70ED000A6997 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC56642D2AEC7B97003297FE /* Services */,
 				B293013F2AEBE36C000A6997 /* AllProducts */,
 				B29301342AEBDDC0000A6997 /* DiscountCode */,
 				B293012A2AEA85D5000A6997 /* PriceRoles */,
@@ -301,6 +318,8 @@
 		B293012A2AEA85D5000A6997 /* PriceRoles */ = {
 			isa = PBXGroup;
 			children = (
+				DC5664362AECC90F003297FE /* Model */,
+				DC5664352AECC904003297FE /* ViewModel */,
 				B293012B2AEA85DD000A6997 /* View */,
 			);
 			path = PriceRoles;
@@ -313,6 +332,8 @@
 				B293012D2AEA85FA000A6997 /* PriceRulesViewController.xib */,
 				B29301302AEA8711000A6997 /* PriceRulesCell.swift */,
 				B29301312AEA8711000A6997 /* PriceRulesCell.xib */,
+				DC5664292AEC6FC3003297FE /* AddPriceRuleVC.swift */,
+				DC56642A2AEC6FC3003297FE /* AddPriceRuleVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -339,6 +360,8 @@
 		B293013F2AEBE36C000A6997 /* AllProducts */ = {
 			isa = PBXGroup;
 			children = (
+				DC5664342AECC8D3003297FE /* Model */,
+				DC5664332AECC8C8003297FE /* ViewModel */,
 				B29301402AEBE378000A6997 /* View */,
 			);
 			path = AllProducts;
@@ -351,6 +374,44 @@
 				B29301422AEBE397000A6997 /* AllProductViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DC56642D2AEC7B97003297FE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DC56642E2AEC7BC8003297FE /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DC5664332AECC8C8003297FE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DC5664342AECC8D3003297FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DC5664352AECC904003297FE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DC56643F2AECD2BC003297FE /* PriceRuleViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DC5664362AECC90F003297FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC5664372AECC91F003297FE /* PriceRuleModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +430,11 @@
 			dependencies = (
 			);
 			name = "M-Commerce-Admin";
+			packageProductDependencies = (
+				DC5664312AECC26D003297FE /* Alamofire */,
+				DC56643A2AECD027003297FE /* Kingfisher */,
+				DC56643D2AECD0DD003297FE /* Cosmos */,
+			);
 			productName = "M-Commerce-Admin";
 			productReference = 84E0D6C42AE9311000FCB2F7 /* M-Commerce-Admin.app */;
 			productType = "com.apple.product-type.application";
@@ -441,6 +507,11 @@
 				Base,
 			);
 			mainGroup = 84E0D6BB2AE9311000FCB2F7;
+			packageReferences = (
+				DC5664302AECC26D003297FE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DC5664392AECD027003297FE /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DC56643C2AECD0DD003297FE /* XCRemoteSwiftPackageReference "Cosmos" */,
+			);
 			productRefGroup = 84E0D6C52AE9311000FCB2F7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -463,6 +534,7 @@
 				B293011E2AEA8113000A6997 /* ProductInfoViewController.xib in Resources */,
 				B293010F2AEA760C000A6997 /* AvailableProductsVC.xib in Resources */,
 				B29301332AEA8711000A6997 /* PriceRulesCell.xib in Resources */,
+				DC56642C2AEC6FC3003297FE /* AddPriceRuleVC.xib in Resources */,
 				B29301442AEBE397000A6997 /* AllProductViewController.xib in Resources */,
 				B29301132AEA7652000A6997 /* AvailableProductsCell.xib in Resources */,
 				B293013A2AEBDDF8000A6997 /* DiscountCodeViewController.xib in Resources */,
@@ -501,14 +573,18 @@
 				B29300FE2AEA7263000A6997 /* BrandsCollectionViewCell.swift in Sources */,
 				B29301432AEBE397000A6997 /* AllProductViewController.swift in Sources */,
 				B293013D2AEBE07D000A6997 /* DicountCodeCell.swift in Sources */,
+				DC56642F2AEC7BC8003297FE /* NetworkManager.swift in Sources */,
+				DC5664382AECC91F003297FE /* PriceRuleModel.swift in Sources */,
 				B29301392AEBDDF8000A6997 /* DiscountCodeViewController.swift in Sources */,
 				B29301282AEA8221000A6997 /* AddProductViewController.swift in Sources */,
 				B29300F52AEA711E000A6997 /* HomeViewController.swift in Sources */,
 				B29301072AEA7290000A6997 /* Constans.swift in Sources */,
+				DC5664402AECD2BC003297FE /* PriceRuleViewModel.swift in Sources */,
 				B29300FA2AEA7183000A6997 /* TabController.swift in Sources */,
 				B29301322AEA8711000A6997 /* PriceRulesCell.swift in Sources */,
 				B293012E2AEA85FA000A6997 /* PriceRulesViewController.swift in Sources */,
 				B293011D2AEA8113000A6997 /* OptionCollectionViewCell.swift in Sources */,
+				DC56642B2AEC6FC3003297FE /* AddPriceRuleVC.swift in Sources */,
 				84E0D6D22AE9311000FCB2F7 /* M_Commerce_Admin.xcdatamodeld in Sources */,
 				84E0D6CC2AE9311000FCB2F7 /* ViewController.swift in Sources */,
 				B293011F2AEA8113000A6997 /* ProductInfoViewController.swift in Sources */,
@@ -852,6 +928,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC5664302AECC26D003297FE /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.8.1;
+			};
+		};
+		DC5664392AECD027003297FE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.9.1;
+			};
+		};
+		DC56643C2AECD0DD003297FE /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 23.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC5664312AECC26D003297FE /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC5664302AECC26D003297FE /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		DC56643A2AECD027003297FE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC5664392AECD027003297FE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		DC56643D2AECD0DD003297FE /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC56643C2AECD0DD003297FE /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		84E0D6D02AE9311000FCB2F7 /* M_Commerce_Admin.xcdatamodeld */ = {
