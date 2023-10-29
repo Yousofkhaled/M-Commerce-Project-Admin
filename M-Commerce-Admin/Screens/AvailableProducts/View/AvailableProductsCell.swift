@@ -19,5 +19,6 @@ class AvailableProductsCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
 
 }

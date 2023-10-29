@@ -12,6 +12,8 @@ class AvailableProductsVC: UIViewController {
 
     @IBOutlet weak var availableProductsCollectionView: UICollectionView!
     
+    var productviewModel = ProductViewModel()
+
     
     // MARK: - LifeCycle
     override func viewDidLoad() {
@@ -19,6 +21,20 @@ class AvailableProductsVC: UIViewController {
         super.viewDidLoad()
         configureCollectionView()
         navigationItem.title = "Available Products"
+        
+        productviewModel.bindresultToProductsViewController = {
+            DispatchQueue.main.async {
+                self.availableProductsCollectionView.reloadData()
+            }
+        }
+        
+        configureLoadingDataFromApi()
+    }
+    
+    func configureLoadingDataFromApi(){
+      
+            productviewModel.getDataFromApiForProduct()
+        
     }
     
     private func configureCollectionView() {
@@ -39,12 +55,16 @@ class AvailableProductsVC: UIViewController {
 extension AvailableProductsVC:UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return productviewModel.getNumberOfProduct() ?? 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = availableProductsCollectionView.dequeueReusableCell(withReuseIdentifier: CellIdentifier.availableProductsCell, for: indexPath) as! AvailableProductsCell
+        
+        cell.productName.text = productviewModel.getTitle(index: indexPath.row)
+        cell.productImage.downloadImageFrom(productviewModel.getid(index: indexPath.row))
+        
         cell.layer.cornerRadius = 20
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;

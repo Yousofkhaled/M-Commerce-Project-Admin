@@ -12,11 +12,22 @@ class AllProductViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var allProuductCollectionView: UICollectionView!
     
+    let categoryViewModel = CategoryViewModel()
+
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         
         super.viewDidLoad()
         configureCollectionView()
+        
+        categoryViewModel.bindresultToHomeViewController = {
+            DispatchQueue.main.async {
+                self.allProuductCollectionView.reloadData()
+            }
+        }
+        
+        configureLoadingDataFromApi()
     }
     
     private func configureCollectionView() {
@@ -24,6 +35,13 @@ class AllProductViewController: UIViewController {
         allProuductCollectionView.delegate = self
         //Registers
         allProuductCollectionView.register(UINib(nibName: CellIdentifier.availableProductsCell, bundle: nil), forCellWithReuseIdentifier: CellIdentifier.availableProductsCell)
+    }
+    
+    //MARK: - Configure The Loading Data
+    func configureLoadingDataFromApi(){
+
+        categoryViewModel.getDataFromApiForHome()
+
     }
     // MARK: - Actions
 
@@ -37,7 +55,8 @@ class AllProductViewController: UIViewController {
 extension AllProductViewController:UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return categoryViewModel.getNumberOfProducts() ?? 3
+
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -46,17 +65,25 @@ extension AllProductViewController:UICollectionViewDataSource {
         cell.layer.cornerRadius = 20
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;
+        
+        cell.productName.text = categoryViewModel.getTitle(index: indexPath.row)
+        cell.productImage.downloadImageFrom(categoryViewModel.getImage(index: indexPath.row))
+        
+//        cell.productBrand.text = categoryViewModel.getTitle(index: indexPath.row)
+//        cell.productName.text = categoryViewModel.getTitle(index: indexPath.row)
+
+        
+        
+        
         return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //
-        //            let vc = ProductsViewController()
-        //        homeViewModel.setSelectedBrandID(Index: indexPath.row)
-        //            navigationController?.pushViewController(vc, animated: true)
-        //            vc.modalPresentationStyle = .automatic
-        //                self.present(vc, animated: true)
+                    let vc = ProductInfoViewController()
+        vc.setID(id: categoryViewModel.getProductID(index: indexPath.item))
+                    navigationController?.pushViewController(vc, animated: true)
         
     }
 }
