@@ -33,7 +33,7 @@ class OptionCollectionViewCell: UICollectionViewCell {
         // Initialization code
         button_container.layer.cornerRadius = 20
         button_container.clipsToBounds = true
-//        button_container.dropShadow()
+        button_container.dropShadow()
     }
 
 }

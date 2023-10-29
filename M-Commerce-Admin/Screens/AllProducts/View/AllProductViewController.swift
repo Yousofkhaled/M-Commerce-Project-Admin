@@ -81,11 +81,9 @@ extension AllProductViewController:UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //
-        //            let vc = ProductsViewController()
-        //        homeViewModel.setSelectedBrandID(Index: indexPath.row)
-        //            navigationController?.pushViewController(vc, animated: true)
-        //            vc.modalPresentationStyle = .automatic
-        //                self.present(vc, animated: true)
+                    let vc = ProductInfoViewController()
+        vc.setID(id: categoryViewModel.getProductID(index: indexPath.item))
+                    navigationController?.pushViewController(vc, animated: true)
         
     }
 }
