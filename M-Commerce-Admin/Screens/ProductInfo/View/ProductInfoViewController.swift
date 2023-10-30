@@ -215,6 +215,16 @@ class ProductInfoViewController: UIViewController {
     
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productTags: UILabel!
+    
+    @IBAction func Add_variant_pressed(_ sender: Any) {
+        let vc = AddVariantViewController()
+        vc.add_variant_closure = {
+            self.view_model.initializeProduct()
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     @IBOutlet weak var productDescription: UILabel!
     
     func setproductImagesCollectionView () -> Void {

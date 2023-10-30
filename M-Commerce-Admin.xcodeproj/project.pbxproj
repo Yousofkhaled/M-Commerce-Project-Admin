@@ -20,6 +20,8 @@
 		84B42CDB2AEE48CB00EE9044 /* ProductInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B42CD92AEE48CB00EE9044 /* ProductInfoViewModel.swift */; };
 		84B42CDF2AEE4EDC00EE9044 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B42CDD2AEE4EDC00EE9044 /* UIView + Extensions.swift */; };
 		84B42CE02AEE4EDC00EE9044 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B42CDE2AEE4EDC00EE9044 /* UIButton + Extensions.swift */; };
+		84B42CE42AEE8C6C00EE9044 /* AddVariantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B42CE22AEE8C6C00EE9044 /* AddVariantViewController.swift */; };
+		84B42CE52AEE8C6C00EE9044 /* AddVariantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B42CE32AEE8C6C00EE9044 /* AddVariantViewController.xib */; };
 		84E0D6C82AE9311000FCB2F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D6C72AE9311000FCB2F7 /* AppDelegate.swift */; };
 		84E0D6CA2AE9311000FCB2F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D6C92AE9311000FCB2F7 /* SceneDelegate.swift */; };
 		84E0D6CC2AE9311000FCB2F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D6CB2AE9311000FCB2F7 /* ViewController.swift */; };
@@ -102,6 +104,8 @@
 		84B42CD92AEE48CB00EE9044 /* ProductInfoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInfoViewModel.swift; sourceTree = "<group>"; };
 		84B42CDD2AEE4EDC00EE9044 /* UIView + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		84B42CDE2AEE4EDC00EE9044 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
+		84B42CE22AEE8C6C00EE9044 /* AddVariantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVariantViewController.swift; sourceTree = "<group>"; };
+		84B42CE32AEE8C6C00EE9044 /* AddVariantViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddVariantViewController.xib; sourceTree = "<group>"; };
 		84E0D6C42AE9311000FCB2F7 /* M-Commerce-Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "M-Commerce-Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E0D6C72AE9311000FCB2F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E0D6C92AE9311000FCB2F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 		84B42CBD2AEE47D500EE9044 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84B42CE12AEE8B7700EE9044 /* AddVariant */,
 				84B42CCC2AEE481B00EE9044 /* CopounCollectionViewCell.swift */,
 				84B42CCD2AEE481B00EE9044 /* CopounCollectionViewCell.xib */,
 				84B42CBE2AEE47D500EE9044 /* ReviewCollectionViewCell.swift */,
@@ -222,6 +227,15 @@
 				B25EA17F2AEDB43E00963558 /* UIImageView + Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84B42CE12AEE8B7700EE9044 /* AddVariant */ = {
+			isa = PBXGroup;
+			children = (
+				84B42CE22AEE8C6C00EE9044 /* AddVariantViewController.swift */,
+				84B42CE32AEE8C6C00EE9044 /* AddVariantViewController.xib */,
+			);
+			path = AddVariant;
 			sourceTree = "<group>";
 		};
 		84E0D6BB2AE9311000FCB2F7 = {
@@ -687,6 +701,7 @@
 				B29301292AEA8221000A6997 /* AddProductViewController.xib in Resources */,
 				B293012F2AEA85FA000A6997 /* PriceRulesViewController.xib in Resources */,
 				B29300F82AEA7171000A6997 /* HomeViewController.xib in Resources */,
+				84B42CE52AEE8C6C00EE9044 /* AddVariantViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,6 +726,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84B42CE42AEE8C6C00EE9044 /* AddVariantViewController.swift in Sources */,
 				B29300FE2AEA7263000A6997 /* BrandsCollectionViewCell.swift in Sources */,
 				B29301432AEBE397000A6997 /* AllProductViewController.swift in Sources */,
 				B293013D2AEBE07D000A6997 /* DicountCodeCell.swift in Sources */,

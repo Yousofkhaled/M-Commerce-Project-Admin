@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductInfoViewController" customModule="E_Commerce_Project" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductInfoViewController" customModule="M_Commerce_Admin" customModuleProvider="target">
             <connections>
                 <outlet property="addToCartView" destination="q3b-gI-vJm" id="Xxc-DZ-pxF"/>
                 <outlet property="number_of_cart_items_label" destination="QI7-v2-SHP" id="bZ1-ML-A0h"/>
@@ -35,10 +35,10 @@
                     <rect key="frame" x="0.0" y="59" width="393" height="652"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8yI-2B-Mrc">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="1141"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="1175.3333333333333"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zJP-vn-U3O">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="1141"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="1175.3333333333333"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jKO-Oq-uXB">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="250"/>
@@ -121,8 +121,16 @@
                                                 </view>
                                             </subviews>
                                         </stackView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hD3-6A-xMy">
-                                            <rect key="frame" x="0.0" y="340" width="393" height="300"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gqc-r3-Ouk">
+                                            <rect key="frame" x="0.0" y="340" width="393" height="34.333333333333314"/>
+                                            <state key="normal" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="gray" title="Add Variant"/>
+                                            <connections>
+                                                <action selector="Add_variant_pressed:" destination="-1" eventType="touchUpInside" id="TP2-lZ-ubw"/>
+                                            </connections>
+                                        </button>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hD3-6A-xMy">
+                                            <rect key="frame" x="0.0" y="374.33333333333326" width="393" height="300"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="i9M-8e-mEj">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
@@ -140,7 +148,7 @@
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2PY-sh-ov8">
-                                            <rect key="frame" x="0.0" y="640" width="393" height="30"/>
+                                            <rect key="frame" x="0.0" y="674.33333333333337" width="393" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJg-Au-uGv">
                                                     <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
@@ -160,7 +168,7 @@
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jrc-Cv-a2D">
-                                            <rect key="frame" x="0.0" y="670" width="393" height="30"/>
+                                            <rect key="frame" x="0.0" y="704.33333333333337" width="393" height="30"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Availability : " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1d-p7-WaD">
                                                     <rect key="frame" x="0.0" y="0.0" width="93.333333333333329" height="30"/>
@@ -181,13 +189,13 @@
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KH-qw-vUi">
-                                            <rect key="frame" x="0.0" y="700" width="393" height="10"/>
+                                            <rect key="frame" x="0.0" y="734.33333333333337" width="393" height="10"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="10" id="Lxj-Gx-Jgc"/>
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PDE-JB-eJW">
-                                            <rect key="frame" x="0.0" y="710" width="393" height="121"/>
+                                            <rect key="frame" x="0.0" y="744.33333333333337" width="393" height="121"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fk0-8Y-QSS">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="23"/>
@@ -209,13 +217,13 @@ any time of year.</string>
                                             </subviews>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SXs-tT-cv2">
-                                            <rect key="frame" x="0.0" y="831" width="393" height="10"/>
+                                            <rect key="frame" x="0.0" y="865.33333333333337" width="393" height="10"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="10" id="8Sb-qc-mGR"/>
                                             </constraints>
                                         </stackView>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xwD-JA-ERP">
-                                            <rect key="frame" x="0.0" y="841" width="393" height="300"/>
+                                            <rect key="frame" x="0.0" y="875.33333333333348" width="393" height="300"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zek-UK-BxI">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
