@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct VariantCompleteModel : Codable {
     var  price : String?
     var option1 : String?
