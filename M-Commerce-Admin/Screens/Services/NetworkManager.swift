@@ -296,6 +296,75 @@ class NetworkServices   {
             else{print("There is error in casting data")}
         }
     }
+    
+    func addProductVariant(product_id: Int, option_1 : String, option_2 : String, price : String, Handler: @escaping (Int?) -> Void){
+        let urlFile = "https://ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/products/\(product_id)/variants.json"
+        
+        let body: [String: Any] = [
+            "variant": [
+                "option1": option_1,
+                "option2": option_2,
+                "price": price
+            ]
+        ]
+        
+        AF.request(urlFile,method: Alamofire.HTTPMethod.post, parameters: body, headers: ["X-Shopify-Access-Token":"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"]).response { data in
+            switch data.result {
+            case .success(_):
+                print("success from add variant")
+                
+                if let validData = data.data {
+                    do{
+                        let dataRetivied = try JSONDecoder().decode(VariantCompleteModel_Container.self, from: validData)
+                        print("Success")
+                        
+                        Handler(dataRetivied.variant?.inventory_item_id)
+                        
+                    }catch let error{
+                        print (error)
+                    }
+                }
+                else{print("There is error in casting data")}
+                
+                break
+                
+            case .failure(let error):
+                print("in add varaint in network manager")
+                print(error)
+            }
+        }
+    }
+    
+    func editVariantQuantity(inventory_item_id: Int, new_quantity : Int, Handler: @escaping () -> Void){
+        let urlFile = "https://ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/inventory_levels/set.json"
+        
+        let body: [String: Any] = [
+            
+            "location_id": 67733225622,
+            "inventory_item_id": inventory_item_id,
+            "available": new_quantity
+        
+        ]
+        
+        print(inventory_item_id)
+        print(new_quantity)
+        
+        AF.request(urlFile,method: Alamofire.HTTPMethod.post, parameters: body, headers: ["X-Shopify-Access-Token":"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"]).response { data in
+            switch data.result {
+            case .success(_):
+                print("success from edit variant")
+                Handler()
+                break
+            case .failure(let error):
+                print("in edit varaint in network manager")
+                print(error)
+            }
+        }
+    }
+    
+    
+    
+    
 }
   
     

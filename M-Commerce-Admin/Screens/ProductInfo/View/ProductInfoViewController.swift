@@ -59,45 +59,7 @@ class ProductInfoViewController: UIViewController {
         variant_available_elements = found.inventory_quantity ?? 0
     }
     
-//    var numberOfCartItems : Int = 0
-    
-//    func updateNumberLabel () {
-//        number_of_cart_items_label.text = String(numberOfCartItems)
-//    }
-//    func reset_cart () {
-//        numberOfCartItems = 0
-//        updateNumberLabel()
-//    }
-    
-//    @IBAction func plus_button_tapped(_ sender: Any) {
-//
-//        if (numberOfCartItems < variant_available_elements) {
-//            numberOfCartItems += 1;
-//        }
-//
-//        updateNumberLabel()
-//
-//        print("plus")
-//    }
-//
-//    @IBAction func minus_button_tapped(_ sender: Any) {
-//        if (numberOfCartItems > 0) {
-//            numberOfCartItems -= 1;
-//        }
-//        updateNumberLabel()
-//        print("minus")
-//    }
-    
-    //@IBOutlet weak var number_of_cart_items_label: UILabel!
-    
-//    @IBAction func add_to_cart_tapped(_ sender: Any) {
-//        // mansour starts here
-//
-//        print("add to cart")
-//
-//        var Mansour_itemID = product_id
-//        var Mansour_selectedOptionValues : [Int] = selectedOption //
-//    }
+
     //------------------------------------------------------------------------------
     
     // options code------------------------------------------------------------------------------
@@ -132,9 +94,9 @@ class ProductInfoViewController: UIViewController {
     
     func toggleOption (row : Int, value : Int) {
         
-        var cell = optionsCollectionView.cellForItem(at: IndexPath(item: value, section: row)) as! OptionCollectionViewCell
+        let cell = optionsCollectionView.cellForItem(at: IndexPath(item: value, section: row)) as! OptionCollectionViewCell
         
-        var old_cell : OptionCollectionViewCell? = isOptionSelected(row: row) ?
+        let old_cell : OptionCollectionViewCell? = isOptionSelected(row: row) ?
         optionsCollectionView.cellForItem(at: IndexPath(item: selectedOption[row], section: row)) as! OptionCollectionViewCell : nil
         
         
@@ -182,7 +144,6 @@ class ProductInfoViewController: UIViewController {
         
         reset_height_and_options()
         
-        //reset_cart()
     }
     
     // view_mode
@@ -198,9 +159,6 @@ class ProductInfoViewController: UIViewController {
     
   
     // outlets
-    
-    //@IBOutlet weak var addToCartView: UIView!
-    //@IBOutlet weak var scroll_and_add_to_cart_vertical_spacing: NSLayoutConstraint!
     
     @IBOutlet weak var reviewsHeight: NSLayoutConstraint!
     @IBOutlet weak var reviewsCollectionView: UICollectionView!
@@ -222,8 +180,13 @@ class ProductInfoViewController: UIViewController {
     @IBAction func Add_variant_pressed(_ sender: Any) {
         let vc = AddVariantViewController()
         vc.add_variant_closure = {
-            self.view_model.initializeProduct()
+            // TODO : dispatch
+            DispatchQueue.main.async {
+                self.view_model.initializeProduct()
+            }
         }
+        vc.product_ID = view_model.product?.id ?? 0
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -262,7 +225,6 @@ class ProductInfoViewController: UIViewController {
             
             section.boundarySupplementaryItems = [header]
             
-            //section.orthogonalScrollingBehavior = .continuous
             
             return section
 
@@ -335,28 +297,8 @@ class ProductInfoViewController: UIViewController {
         setproductImagesCollectionView()
         setReviewsView()
         
-        //hideAddToCart()
-        
-        
-        
-        
     }
     
-//    func showAddToCart () {
-//        if (addToCartView.isHidden) {
-//            scroll_and_add_to_cart_vertical_spacing.constant = 0;
-//            addToCartView.isHidden = false;
-//            view.layoutIfNeeded()
-//        }
-//    }
-//
-//    func hideAddToCart () {
-//        if (!addToCartView.isHidden) {
-//            scroll_and_add_to_cart_vertical_spacing.constant = -addToCartView.frame.height;
-//            addToCartView.isHidden = true
-//            view.layoutIfNeeded()
-//        }
-//    }
     
     func reset_height_and_options () {
         optionsCollectionView.reloadData()
@@ -417,6 +359,12 @@ extension ProductInfoViewController : UICollectionViewDataSource, UICollectionVi
         
             //cell.setOptionValue(value: "White")
             cell.setOptionValue(value: view_model.product?.options?[indexPath.section].values?[indexPath.item] ?? "default")
+            if (selectedOption[indexPath.section] == indexPath.item) {
+                cell.select()
+            }
+            else {
+                cell.unselect()
+            }
             
             return cell;
         }
@@ -425,7 +373,7 @@ extension ProductInfoViewController : UICollectionViewDataSource, UICollectionVi
             
             cell.configure(with: "coupon")
             
-            var img = UIImageView()
+            let img = UIImageView()
             img.downloadImageFrom(view_model.product?.images[indexPath.item].src)
             img.frame.size.height = img.superview?.frame.size.height ?? img.frame.size.height
             img.frame.size.width = img.superview?.frame.size.width ?? img.frame.size.height
@@ -494,8 +442,8 @@ extension ProductInfoViewController : UICollectionViewDelegateFlowLayout {
         
         if collectionView == optionsCollectionView {
             
-            var row = indexPath.section
-            var value = indexPath.item
+            let row = indexPath.section
+            let value = indexPath.item
             
             
             

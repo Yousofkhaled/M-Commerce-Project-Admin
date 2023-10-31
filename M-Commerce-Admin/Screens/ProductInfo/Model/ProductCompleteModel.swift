@@ -7,12 +7,19 @@
 
 import Foundation
 
+struct VariantCompleteModel_Container : Codable {
+    
+    var variant : VariantCompleteModel?
+    
+}
+
 struct VariantCompleteModel : Codable {
     var  price : String?
     var option1 : String?
     var option2 : String?
     var option3 : String?
     var inventory_quantity : Int?
+    var inventory_item_id : Int?
 }
 struct OptionCompleteModel : Codable {
     var name : String?
