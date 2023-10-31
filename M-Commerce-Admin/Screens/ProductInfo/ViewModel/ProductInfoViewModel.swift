@@ -41,7 +41,11 @@ class ProductInfoViewModel {
 
             if let mydata = dataValue {
                 self.product = mydata.product
-                self.reload_my_view()
+                
+//                self.reload_my_view()
+                DispatchQueue.main.async {
+                    self.reload_my_view()
+                }
                 
                 //print(mydata)
 

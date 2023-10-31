@@ -39,6 +39,7 @@ class HomeViewModel{
 
             if let mydata = dataValue {
                 self.getAllBrands = mydata
+                
                 self.bindresultToHomeViewController()
 
             }else {

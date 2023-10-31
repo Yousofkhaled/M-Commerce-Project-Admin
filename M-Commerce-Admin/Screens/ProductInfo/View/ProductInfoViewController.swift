@@ -59,45 +59,45 @@ class ProductInfoViewController: UIViewController {
         variant_available_elements = found.inventory_quantity ?? 0
     }
     
-    var numberOfCartItems : Int = 0
+//    var numberOfCartItems : Int = 0
     
-    func updateNumberLabel () {
-        number_of_cart_items_label.text = String(numberOfCartItems)
-    }
-    func reset_cart () {
-        numberOfCartItems = 0
-        updateNumberLabel()
-    }
+//    func updateNumberLabel () {
+//        number_of_cart_items_label.text = String(numberOfCartItems)
+//    }
+//    func reset_cart () {
+//        numberOfCartItems = 0
+//        updateNumberLabel()
+//    }
     
-    @IBAction func plus_button_tapped(_ sender: Any) {
-        
-        if (numberOfCartItems < variant_available_elements) {
-            numberOfCartItems += 1;
-        }
-        
-        updateNumberLabel()
-        
-        print("plus")
-    }
+//    @IBAction func plus_button_tapped(_ sender: Any) {
+//
+//        if (numberOfCartItems < variant_available_elements) {
+//            numberOfCartItems += 1;
+//        }
+//
+//        updateNumberLabel()
+//
+//        print("plus")
+//    }
+//
+//    @IBAction func minus_button_tapped(_ sender: Any) {
+//        if (numberOfCartItems > 0) {
+//            numberOfCartItems -= 1;
+//        }
+//        updateNumberLabel()
+//        print("minus")
+//    }
     
-    @IBAction func minus_button_tapped(_ sender: Any) {
-        if (numberOfCartItems > 0) {
-            numberOfCartItems -= 1;
-        }
-        updateNumberLabel()
-        print("minus")
-    }
+    //@IBOutlet weak var number_of_cart_items_label: UILabel!
     
-    @IBOutlet weak var number_of_cart_items_label: UILabel!
-    
-    @IBAction func add_to_cart_tapped(_ sender: Any) {
-        // mansour starts here
-        
-        print("add to cart")
-        
-        var Mansour_itemID = product_id
-        var Mansour_selectedOptionValues : [Int] = selectedOption //
-    }
+//    @IBAction func add_to_cart_tapped(_ sender: Any) {
+//        // mansour starts here
+//
+//        print("add to cart")
+//
+//        var Mansour_itemID = product_id
+//        var Mansour_selectedOptionValues : [Int] = selectedOption //
+//    }
     //------------------------------------------------------------------------------
     
     // options code------------------------------------------------------------------------------
@@ -179,7 +179,10 @@ class ProductInfoViewController: UIViewController {
         productImagesCollectionView.reloadData()
         
         reset_options()
-        reset_cart()
+        
+        reset_height_and_options()
+        
+        //reset_cart()
     }
     
     // view_mode
@@ -196,8 +199,8 @@ class ProductInfoViewController: UIViewController {
   
     // outlets
     
-    @IBOutlet weak var addToCartView: UIView!
-    @IBOutlet weak var scroll_and_add_to_cart_vertical_spacing: NSLayoutConstraint!
+    //@IBOutlet weak var addToCartView: UIView!
+    //@IBOutlet weak var scroll_and_add_to_cart_vertical_spacing: NSLayoutConstraint!
     
     @IBOutlet weak var reviewsHeight: NSLayoutConstraint!
     @IBOutlet weak var reviewsCollectionView: UICollectionView!
@@ -332,31 +335,30 @@ class ProductInfoViewController: UIViewController {
         setproductImagesCollectionView()
         setReviewsView()
         
-        hideAddToCart()
+        //hideAddToCart()
         
         
         
         
     }
     
-    func showAddToCart () {
-        if (addToCartView.isHidden) {
-            scroll_and_add_to_cart_vertical_spacing.constant = 0;
-            addToCartView.isHidden = false;
-            view.layoutIfNeeded()
-        }
-    }
+//    func showAddToCart () {
+//        if (addToCartView.isHidden) {
+//            scroll_and_add_to_cart_vertical_spacing.constant = 0;
+//            addToCartView.isHidden = false;
+//            view.layoutIfNeeded()
+//        }
+//    }
+//
+//    func hideAddToCart () {
+//        if (!addToCartView.isHidden) {
+//            scroll_and_add_to_cart_vertical_spacing.constant = -addToCartView.frame.height;
+//            addToCartView.isHidden = true
+//            view.layoutIfNeeded()
+//        }
+//    }
     
-    func hideAddToCart () {
-        if (!addToCartView.isHidden) {
-            scroll_and_add_to_cart_vertical_spacing.constant = -addToCartView.frame.height;
-            addToCartView.isHidden = true
-            view.layoutIfNeeded()
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
+    func reset_height_and_options () {
         optionsCollectionView.reloadData()
         
         var height = optionsCollectionView.collectionViewLayout.collectionViewContentSize.height
@@ -368,6 +370,11 @@ class ProductInfoViewController: UIViewController {
         
         
         view.layoutIfNeeded()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        //reset_height_and_options()
         
     }
 
@@ -496,17 +503,18 @@ extension ProductInfoViewController : UICollectionViewDelegateFlowLayout {
             
             if selectedOptionsCount == get_number_of_options() {
                 get_variant_data()
-                showAddToCart()
+                //showAddToCart()
             }
             else {
-                hideAddToCart()
+                
+                //hideAddToCart()
             }
             
             print("toggle add to cart")
             
             print(selectedOptionsCount)
             
-            reset_cart()
+            //reset_cart()
             
             
         }
