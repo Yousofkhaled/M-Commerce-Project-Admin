@@ -18,8 +18,8 @@ class DiscountCodeViewModel {
         }
     }
     //MARK: - Network Functions
-    func getDiscountCodes(priceRuleId : Int?){
-        networkManager.getDiscountCodes(priceRuleId: 1138489032854, Handler: { (dataValue:DiscountContainer?, error: Error?) in
+    func getDiscountCodes(priceRuleId : Int){
+        networkManager.getDiscountCodes(priceRuleId: priceRuleId, Handler: { (dataValue:DiscountContainer?, error: Error?) in
             print("Success")
 
             if let mydata = dataValue {

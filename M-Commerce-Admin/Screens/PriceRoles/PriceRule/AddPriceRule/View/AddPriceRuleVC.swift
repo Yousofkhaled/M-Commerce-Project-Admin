@@ -17,8 +17,15 @@ class AddPriceRuleVC: UIViewController {
     @IBOutlet weak var minimumSubtotalField: UITextField!
     @IBOutlet weak var discountAmountField: UITextField!
     var view_model = AddPriceRulediscountViewModel()
+    
+    var price_rules_protocol : reload_me? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view_model.bindresultToHomeViewController = {
+            self.price_rules_protocol?.update_me()
+        }
         
         // Do any additional setup after loading the view.
     }

@@ -73,6 +73,27 @@ class NetworkManager {
             else{print("There is error in casting data")}
         }
     }
+    
+    func addDiscountCode (priceRuleId: Int, codeStr : String, Handler : @escaping () -> Void){
+        let URL = "https://ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/price_rules/\(priceRuleId)/batch.json"
+        
+        let body = [
+            "discount_codes":[
+                ["code":codeStr]
+            ]
+        ]
+        
+        Alamofire.AF.request(URL,method: Alamofire.HTTPMethod.post, parameters: body, headers: ["X-Shopify-Access-Token":"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"]).response { data in
+            switch data.result {
+            case .success(_):
+                Handler()
+                break
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func getPriceRule <T:Codable> (Handler : @escaping (T?,Error?) -> Void){
         let URL = "https://a6cdf13b3aee85b07964a84ccc1bd762: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@ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/price_rules.json"
         AF.request(URL,method: .get).response { data in

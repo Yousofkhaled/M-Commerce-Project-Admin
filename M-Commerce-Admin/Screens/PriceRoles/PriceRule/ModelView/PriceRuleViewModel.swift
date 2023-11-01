@@ -41,6 +41,9 @@ class PriceRuleViewModel {
     func getpriceRuleTitle(index : Int)-> String {
         return AllPriceRule?.price_rules[index].title ?? "50% Off"
     }
+    func getpriceRuleId(index : Int)-> Int {
+        return AllPriceRule?.price_rules[index].id ?? 0
+    }
     
     func getStartDate(index : Int) -> String {
         return AllPriceRule?.price_rules[index].starts_at ?? "2023-10-23T12:00:00-04:00"
