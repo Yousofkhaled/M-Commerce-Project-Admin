@@ -7,20 +7,35 @@
 
 import UIKit
 
-class PriceRulesViewController: UIViewController {
+protocol reload_me {
+    func reload_me()
+    func update_me()
+}
+
+class PriceRulesViewController: UIViewController, reload_me {
     // MARK: - Variables
     @IBOutlet weak var offersCollectionView: UICollectionView!
     var priceRuleViewModel = PriceRuleViewModel()
     // MARK: - LifeCycle
+    
+    func reload_me () {
+        print("reload_me price rules vc")
+        offersCollectionView.reloadData()
+    }
+    
+    func update_me () {
+        priceRuleViewModel.getAllPriceRules()
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         configureCollectionView()
         navigationItem.title = "Price Rules"
         priceRuleViewModel.bindresultToHomeViewController = {
-            self.offersCollectionView.reloadData()
+            self.reload_me()
         }
-        priceRuleViewModel.getAllPriceRules()
+        update_me()
     }
     
     private func configureCollectionView() {
@@ -32,8 +47,9 @@ class PriceRulesViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction func addBtnTapped(_ sender: Any) {
-//        let vc = AddProductViewController()
-//        navigationController?.pushViewController(vc, animated: true)
+        let vc = AddPriceRuleVC()
+        vc.price_rules_protocol = self
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -58,6 +74,7 @@ extension PriceRulesViewController:UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //
                     let vc = DiscountCodeViewController()
+        vc.priceRuleId = priceRuleViewModel.getpriceRuleId(index: indexPath.item)
         //        homeViewModel.setSelectedBrandID(Index: indexPath.row)
                     navigationController?.pushViewController(vc, animated: true)
         //            vc.modalPresentationStyle = .automatic
