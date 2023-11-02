@@ -373,12 +373,12 @@ extension ProductInfoViewController : UICollectionViewDataSource, UICollectionVi
             
             cell.configure(with: "coupon")
             
-            let img = UIImageView()
-            img.downloadImageFrom(view_model.product?.images[indexPath.item].src)
-            img.frame.size.height = img.superview?.frame.size.height ?? img.frame.size.height
-            img.frame.size.width = img.superview?.frame.size.width ?? img.frame.size.height
+//            let img = UIImageView()
+//            img.downloadImageFrom(view_model.product?.images[indexPath.item].src)
+//            img.frame.size.height = img.superview?.frame.size.height ?? img.frame.size.height
+//            img.frame.size.width = img.superview?.frame.size.width ?? img.frame.size.height
             
-            cell.couponImageView.image = img.getImageInsideView()
+            cell.couponImageView.downloadImageFrom(view_model.product?.images[indexPath.item].src)
 
             
             cell.layer.cornerRadius = 30
