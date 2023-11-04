@@ -435,6 +435,38 @@ class NetworkServices   {
     
     
     
+    func add_new_product (product_title : String, product_vendor : String, product_type : String, product_description body_html : String, Handler: @escaping () -> Void) {
+        let urlFile = "https://ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/products.json"
+        
+        let body: [String: Any] = [
+            
+            "product": [
+                    "title": product_title,
+                    "body_html": body_html,
+                    "vendor": product_vendor,
+                    "product_type": product_type,
+                    "variants":[
+                        ["option1":"1", "option2" : "black","price":"0.00","sku":"123"]],
+                    "options":[["name":"Size","values":["1"]], ["name":"Color","values":["black"]]]
+                ]
+        
+        ]
+        
+        AF.request(urlFile,method: Alamofire.HTTPMethod.post, parameters: body, headers: ["X-Shopify-Access-Token":"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"]).response { data in
+            switch data.result {
+            case .success(_):
+                print("success from add_new_product")
+                Handler()
+                break
+            case .failure(let error):
+                print("in add_new_product in network manager")
+                print(error)
+            }
+        }
+    }
+    
+    
+    
     
     
 }

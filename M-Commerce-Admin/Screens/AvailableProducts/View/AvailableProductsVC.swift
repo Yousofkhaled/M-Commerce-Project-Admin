@@ -13,6 +13,8 @@ class AvailableProductsVC: UIViewController {
     @IBOutlet weak var availableProductsCollectionView: UICollectionView!
     
     var productviewModel = ProductViewModel()
+    
+    var brand_title : String = "Not Set"
 
     
     // MARK: - LifeCycle
@@ -47,6 +49,12 @@ class AvailableProductsVC: UIViewController {
 
     @IBAction func addBtnTapped(_ sender: Any) {
         let vc = AddProductViewController()
+        vc.vendor_name = brand_title
+        vc.bindresultToPreviousController = {
+            self.productviewModel.getDataFromApiForProduct()
+        }
+//        vc.vendorTextField.text = brand_title
+//        vc.vendorTextField.isEnabled = false;
         navigationController?.pushViewController(vc, animated: true)
     }
     

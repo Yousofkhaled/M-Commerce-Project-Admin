@@ -30,6 +30,10 @@ class HomeViewModel{
         return getAllBrands
     }
 
+    
+    func get_Brand_by_index (index : Int) -> String {
+        return getAllBrands?.smart_collections[index].title ?? "Error"
+    }
   
     
     //MARK: -CAll Request of Api

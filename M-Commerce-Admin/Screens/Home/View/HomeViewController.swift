@@ -65,7 +65,9 @@ extension HomeViewController:UICollectionViewDataSource {
         let vc = AvailableProductsVC()
         homeViewModel.setSelectedBrandID(Index: indexPath.row)
         //        homeViewModel.setSelectedBrandID(Index: indexPath.row)
-                    navigationController?.pushViewController(vc, animated: true)
+        var brand_title = homeViewModel.get_Brand_by_index(index: indexPath.item)
+        vc.brand_title = brand_title
+        navigationController?.pushViewController(vc, animated: true)
         //            vc.modalPresentationStyle = .automatic
         //                present(vc, animated: true)
     }
