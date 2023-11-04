@@ -42,6 +42,12 @@ class DiscountCodeViewModel {
         return AllDiscountCodes?.discount_codes[index].code ?? "Summer Sale"
     }
     
+    func getDiscountCodeID(index : Int)-> Int {
+        return AllDiscountCodes?.discount_codes[index].id ?? -1
+    }
+    
+    
+    
     func getNumberOfUsages(index : Int) -> Int {
         return AllDiscountCodes?.discount_codes[index].usage_count ?? 0
     }

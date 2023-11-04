@@ -7,7 +7,11 @@
 
 import UIKit
 
-class DiscountCodeViewController: UIViewController {
+class DiscountCodeViewController: UIViewController, discount_code_deletion {
+    func reload_view() {
+        discountViewModel.getDiscountCodes(priceRuleId: priceRuleId)
+    }
+    
     // MARK: - Variables
     @IBOutlet weak var discountCollectionView: UICollectionView!
     
@@ -16,6 +20,16 @@ class DiscountCodeViewController: UIViewController {
     var manager = NetworkManager()
     
     var priceRuleId = 0
+    
+    func getPriceRuleId () -> Int{
+        return priceRuleId
+    }
+    
+    func getDiscountCodeID (index : Int) -> Int{
+        return discountViewModel.AllDiscountCodes?.discount_codes[index].id ?? -1
+    }
+    
+    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         
@@ -83,6 +97,11 @@ extension DiscountCodeViewController:UICollectionViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;
         cell.configureCellUI(dicountCodeTitle: discountViewModel.getDiscountCodesTitle(index: indexPath.row), numberOfUsage: discountViewModel.getNumberOfUsages(index: indexPath.row))
+        
+        cell.deletion_delegate = self
+        cell.discount_code_id = discountViewModel.getDiscountCodeID(index: indexPath.item)
+        cell.price_rule_id = priceRuleId
+        
         return cell
     }
     

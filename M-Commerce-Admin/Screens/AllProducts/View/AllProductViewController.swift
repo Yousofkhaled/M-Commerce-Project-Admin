@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AllProductViewController: UIViewController {
+class AllProductViewController: UIViewController , cell_delegate{
     // MARK: - Variables
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var allProuductCollectionView: UICollectionView!
@@ -74,6 +74,9 @@ extension AllProductViewController:UICollectionViewDataSource {
         
         cell.productName.text = categoryViewModel.getTitle(index: indexPath.row)
         cell.productImage.downloadImageFrom(categoryViewModel.getImage(index: indexPath.row))
+        
+        cell.product_id = Int(categoryViewModel.getProductID(index: indexPath.item))
+        cell.deletion_delegate = self
         
 //        cell.productBrand.text = categoryViewModel.getTitle(index: indexPath.row)
 //        cell.productName.text = categoryViewModel.getTitle(index: indexPath.row)
