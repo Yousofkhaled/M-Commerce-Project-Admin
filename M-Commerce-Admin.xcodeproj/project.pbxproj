@@ -22,6 +22,10 @@
 		84B42CE02AEE4EDC00EE9044 /* UIButton + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B42CDE2AEE4EDC00EE9044 /* UIButton + Extensions.swift */; };
 		84B42CE42AEE8C6C00EE9044 /* AddVariantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B42CE22AEE8C6C00EE9044 /* AddVariantViewController.swift */; };
 		84B42CE52AEE8C6C00EE9044 /* AddVariantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B42CE32AEE8C6C00EE9044 /* AddVariantViewController.xib */; };
+		84B431262AF5B26500D43BCD /* EditVariantVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B431242AF5B26500D43BCD /* EditVariantVC.swift */; };
+		84B431272AF5B26500D43BCD /* EditVariantVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B431252AF5B26500D43BCD /* EditVariantVC.xib */; };
+		84B4312A2AF5B28100D43BCD /* EditProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B431282AF5B28100D43BCD /* EditProductVC.swift */; };
+		84B4312B2AF5B28100D43BCD /* EditProductVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84B431292AF5B28100D43BCD /* EditProductVC.xib */; };
 		84E0D6C82AE9311000FCB2F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D6C72AE9311000FCB2F7 /* AppDelegate.swift */; };
 		84E0D6CA2AE9311000FCB2F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D6C92AE9311000FCB2F7 /* SceneDelegate.swift */; };
 		84E0D6CC2AE9311000FCB2F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E0D6CB2AE9311000FCB2F7 /* ViewController.swift */; };
@@ -106,6 +110,10 @@
 		84B42CDE2AEE4EDC00EE9044 /* UIButton + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton + Extensions.swift"; sourceTree = "<group>"; };
 		84B42CE22AEE8C6C00EE9044 /* AddVariantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVariantViewController.swift; sourceTree = "<group>"; };
 		84B42CE32AEE8C6C00EE9044 /* AddVariantViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddVariantViewController.xib; sourceTree = "<group>"; };
+		84B431242AF5B26500D43BCD /* EditVariantVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVariantVC.swift; sourceTree = "<group>"; };
+		84B431252AF5B26500D43BCD /* EditVariantVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditVariantVC.xib; sourceTree = "<group>"; };
+		84B431282AF5B28100D43BCD /* EditProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProductVC.swift; sourceTree = "<group>"; };
+		84B431292AF5B28100D43BCD /* EditProductVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditProductVC.xib; sourceTree = "<group>"; };
 		84E0D6C42AE9311000FCB2F7 /* M-Commerce-Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "M-Commerce-Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84E0D6C72AE9311000FCB2F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84E0D6C92AE9311000FCB2F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -189,13 +197,14 @@
 		84B42CBD2AEE47D500EE9044 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84B431232AF5B23F00D43BCD /* EditProduct */,
+				84B431222AF5B23300D43BCD /* EditVariant */,
+				84B431212AF5A7CA00D43BCD /* ProductInfo */,
 				84B42CE12AEE8B7700EE9044 /* AddVariant */,
 				84B42CCC2AEE481B00EE9044 /* CopounCollectionViewCell.swift */,
 				84B42CCD2AEE481B00EE9044 /* CopounCollectionViewCell.xib */,
 				84B42CBE2AEE47D500EE9044 /* ReviewCollectionViewCell.swift */,
 				84B42CBF2AEE47D500EE9044 /* OptionCollectionViewCell.swift */,
-				84B42CC02AEE47D500EE9044 /* ProductInfoViewController.xib */,
-				84B42CC12AEE47D500EE9044 /* ProductInfoViewController.swift */,
 				84B42CC22AEE47D500EE9044 /* ReviewCollectionViewCell.xib */,
 				84B42CC32AEE47D500EE9044 /* OptionCollectionViewCell.xib */,
 				84B42CC42AEE47D500EE9044 /* sectionHeader.swift */,
@@ -236,6 +245,33 @@
 				84B42CE32AEE8C6C00EE9044 /* AddVariantViewController.xib */,
 			);
 			path = AddVariant;
+			sourceTree = "<group>";
+		};
+		84B431212AF5A7CA00D43BCD /* ProductInfo */ = {
+			isa = PBXGroup;
+			children = (
+				84B42CC02AEE47D500EE9044 /* ProductInfoViewController.xib */,
+				84B42CC12AEE47D500EE9044 /* ProductInfoViewController.swift */,
+			);
+			path = ProductInfo;
+			sourceTree = "<group>";
+		};
+		84B431222AF5B23300D43BCD /* EditVariant */ = {
+			isa = PBXGroup;
+			children = (
+				84B431242AF5B26500D43BCD /* EditVariantVC.swift */,
+				84B431252AF5B26500D43BCD /* EditVariantVC.xib */,
+			);
+			path = EditVariant;
+			sourceTree = "<group>";
+		};
+		84B431232AF5B23F00D43BCD /* EditProduct */ = {
+			isa = PBXGroup;
+			children = (
+				84B431282AF5B28100D43BCD /* EditProductVC.swift */,
+				84B431292AF5B28100D43BCD /* EditProductVC.xib */,
+			);
+			path = EditProduct;
 			sourceTree = "<group>";
 		};
 		84E0D6BB2AE9311000FCB2F7 = {
@@ -694,9 +730,11 @@
 				B29301442AEBE397000A6997 /* AllProductViewController.xib in Resources */,
 				B29301132AEA7652000A6997 /* AvailableProductsCell.xib in Resources */,
 				B293013A2AEBDDF8000A6997 /* DiscountCodeViewController.xib in Resources */,
+				84B4312B2AF5B28100D43BCD /* EditProductVC.xib in Resources */,
 				84B42CC72AEE47D500EE9044 /* ProductInfoViewController.xib in Resources */,
 				84B42CCF2AEE481B00EE9044 /* CopounCollectionViewCell.xib in Resources */,
 				84E0D6D42AE9311300FCB2F7 /* Assets.xcassets in Resources */,
+				84B431272AF5B26500D43BCD /* EditVariantVC.xib in Resources */,
 				84E0D6CF2AE9311000FCB2F7 /* Main.storyboard in Resources */,
 				B29301292AEA8221000A6997 /* AddProductViewController.xib in Resources */,
 				B293012F2AEA85FA000A6997 /* PriceRulesViewController.xib in Resources */,
@@ -728,6 +766,7 @@
 			files = (
 				84B42CE42AEE8C6C00EE9044 /* AddVariantViewController.swift in Sources */,
 				B29300FE2AEA7263000A6997 /* BrandsCollectionViewCell.swift in Sources */,
+				84B4312A2AF5B28100D43BCD /* EditProductVC.swift in Sources */,
 				B29301432AEBE397000A6997 /* AllProductViewController.swift in Sources */,
 				B293013D2AEBE07D000A6997 /* DicountCodeCell.swift in Sources */,
 				DC56642F2AEC7BC8003297FE /* NetworkManager.swift in Sources */,
@@ -736,6 +775,7 @@
 				84B42CC82AEE47D500EE9044 /* ProductInfoViewController.swift in Sources */,
 				B29301282AEA8221000A6997 /* AddProductViewController.swift in Sources */,
 				B29300F52AEA711E000A6997 /* HomeViewController.swift in Sources */,
+				84B431262AF5B26500D43BCD /* EditVariantVC.swift in Sources */,
 				B25EA1842AEDB67B00963558 /* AvailavleProductsViewModel.swift in Sources */,
 				B29301072AEA7290000A6997 /* Constans.swift in Sources */,
 				DC5664402AECD2BC003297FE /* AddPriceRulediscountViewModel.swift in Sources */,

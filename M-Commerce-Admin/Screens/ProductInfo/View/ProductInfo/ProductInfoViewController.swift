@@ -7,18 +7,164 @@
 
 import UIKit
 
-class ProductInfoViewController: UIViewController {
+class ProductInfoViewController: UIViewController, ProductInfoDelegate {
     
     // cart code------------------------------------------------------------------------------
     @IBOutlet weak var variant_price: UILabel!
     
     @IBOutlet weak var variant_availability: UILabel!
     
+    @IBAction func edit_product_pressed(_ sender: Any) {
+        
+        
+        //1. Create the alert controller.
+        var alert = UIAlertController(title: "Edit", message: "Enter new Product Data", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField(configurationHandler: { (textField) -> Void in
+            textField.placeholder = "Title"
+        })
+        alert.addTextField(configurationHandler: { (textField) -> Void in
+            textField.placeholder = "Tags"
+        })
+        alert.addTextField(configurationHandler: { (textField) -> Void in
+            textField.placeholder = "Description"
+        })
+        
+        
+
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Edit", style: .destructive, handler: { [self, weak alert] (action) -> Void in
+            let TitleField = (alert?.textFields![0])! as UITextField
+            let TagsField = (alert?.textFields![1])! as UITextField
+            let DescriptionField = (alert?.textFields![2])! as UITextField
+            
+            guard let title = TitleField.text else {
+                return
+            }
+            if title.isEmpty {
+                let alert = UIAlertController(title: "Alert", message: "Please enter a valid title", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            guard let tags = TagsField.text else {
+                return
+            }
+            if tags.isEmpty {
+                let alert = UIAlertController(title: "Alert", message: "Please enter valid tags", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            guard let description = DescriptionField.text else {
+                return
+            }
+            if description.isEmpty {
+                let alert = UIAlertController(title: "Alert", message: "Please enter a valid description", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
+            view_model.update_product(product_title: title, product_tags: tags, product_description: description)
+//
+//            guard let availability = Int(availabilityField.text ?? "not ok") else {
+//                let alert = UIAlertController(title: "Alert", message: "Please enter a valid availability", preferredStyle: UIAlertController.Style.alert)
+//                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//
+//                return
+//            }
+//
+//            self.view_model.updateVariant(variant_id: self.variant_Unique_ID, inventory_item_id: self.variant_Inventory_item_ID, inventory_quantity: availability, price: "\(price)")
+            
+            
+//            self.manager.addDiscountCode(priceRuleId: self.priceRuleId, codeStr: textField.text ?? "empty str") {
+//                self.discountViewModel.getDiscountCodes(priceRuleId: self.priceRuleId)
+//            }
+            
+//            println("Text field: \(textField.text)")
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak alert] (action) -> Void in
+            // do nothing
+        }))
+        
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func edit_variant_pressed(_ sender: Any) {
+        
+        if (variant_Unique_ID == -1) {
+            
+            let alert = UIAlertController(title: "Alert", message: "Please select a valid combination of options", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
+        //1. Create the alert controller.
+        var alert = UIAlertController(title: "Edit", message: "Enter new variant Data", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField(configurationHandler: { (textField) -> Void in
+            textField.placeholder = "Price"
+        })
+        alert.addTextField(configurationHandler: { (textField) -> Void in
+            textField.placeholder = "Availability"
+        })
+        
+
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Edit", style: .destructive, handler: { [self, weak alert] (action) -> Void in
+            let priceField = (alert?.textFields![0])! as UITextField
+            let availabilityField = (alert?.textFields![1])! as UITextField
+            
+            guard let price = Double(priceField.text ?? "not ok") else {
+                let alert = UIAlertController(title: "Alert", message: "Please enter a valid price", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                return
+            }
+            
+            guard let availability = Int(availabilityField.text ?? "not ok") else {
+                let alert = UIAlertController(title: "Alert", message: "Please enter a valid availability", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                return
+            }
+            
+            self.view_model.updateVariant(variant_id: self.variant_Unique_ID, inventory_item_id: self.variant_Inventory_item_ID, inventory_quantity: availability, price: "\(price)")
+            
+            
+//            self.manager.addDiscountCode(priceRuleId: self.priceRuleId, codeStr: textField.text ?? "empty str") {
+//                self.discountViewModel.getDiscountCodes(priceRuleId: self.priceRuleId)
+//            }
+            
+//            println("Text field: \(textField.text)")
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak alert] (action) -> Void in
+            // do nothing
+        }))
+        
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+        
+        print("variant exists")
+    }
+    
     
     var variant_available_elements : Int = 0
     
     var variant_index : Int = 0
-    var variant_Unique_ID : Int = 0
+    var variant_Unique_ID : Int = -1
+    var variant_Inventory_item_ID : Int = -1
     
     func get_variant_data () {
         
@@ -27,36 +173,54 @@ class ProductInfoViewController: UIViewController {
         var all_variants : [VariantCompleteModel] = view_model.product?.variants ?? []
         
         var found : VariantCompleteModel = VariantCompleteModel()
-        for v in all_variants {
-            //numOptions
-            
-            print(v)
-            
-            var equal : Bool = true
-            
-            if numOptions >= 1 {
-                equal = equal && (v.option1 == view_model.product?.options?[0].values?[selectedOption[0]])
-            }
-            if numOptions >= 2 {
-                equal = equal && (v.option2 == view_model.product?.options?[1].values?[selectedOption[1]])
-            }
-            if numOptions >= 3 {
-                equal = equal && (v.option3 == view_model.product?.options?[2].values?[selectedOption[2]])
-            }
-            
-            if (equal) {
-                print("variant is found")
-                found = v;
-                break
-            }
-            else {
-                print("variant is NOT found")
+        
+        var variant_exists = false;
+        
+        found.price = nil
+        found.inventory_quantity = nil
+        if (selectedOptionsCount == get_number_of_options()) {
+            for v in all_variants {
+                //numOptions
+                
+                print(v)
+                
+                var equal : Bool = true
+                
+                if numOptions >= 1 {
+                    equal = equal && (v.option1 == view_model.product?.options?[0].values?[selectedOption[0]])
+                }
+                if numOptions >= 2 {
+                    equal = equal && (v.option2 == view_model.product?.options?[1].values?[selectedOption[1]])
+                }
+                if numOptions >= 3 {
+                    equal = equal && (v.option3 == view_model.product?.options?[2].values?[selectedOption[2]])
+                }
+                
+                if (equal) {
+                    print("variant is found")
+                    found = v;
+                    variant_exists = true
+                    break
+                }
+                else {
+                    print("variant is NOT found")
+                }
             }
         }
         
         variant_price.text = found.price ?? "not found"
         variant_availability.text = found.inventory_quantity != nil ? String(found.inventory_quantity!) : "not found"
         variant_available_elements = found.inventory_quantity ?? 0
+        
+        
+        if (variant_exists) {
+            variant_Unique_ID = found.id ?? -1
+            variant_Inventory_item_ID = found.inventory_item_id ?? -1
+        }
+        else {
+            variant_Unique_ID = -1
+            variant_Inventory_item_ID = -1
+        }
     }
     
 
@@ -143,6 +307,8 @@ class ProductInfoViewController: UIViewController {
         reset_options()
         
         reset_height_and_options()
+        
+        get_variant_data()
         
     }
     
@@ -449,8 +615,10 @@ extension ProductInfoViewController : UICollectionViewDelegateFlowLayout {
             
             toggleOption(row: row, value: value)
             
+            get_variant_data()
+            
             if selectedOptionsCount == get_number_of_options() {
-                get_variant_data()
+                //get_variant_data()
                 //showAddToCart()
             }
             else {
