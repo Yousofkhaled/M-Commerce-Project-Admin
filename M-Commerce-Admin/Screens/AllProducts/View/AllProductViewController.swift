@@ -48,6 +48,12 @@ class AllProductViewController: UIViewController {
     @IBAction func addBtnTapped(_ sender: Any) {
 //        let vc = AddProductViewController()
 //        navigationController?.pushViewController(vc, animated: true)
+        
+        let vc = AddProductViewController()
+        vc.bindresultToPreviousController = {
+            self.categoryViewModel.getDataFromApiForHome()
+        }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

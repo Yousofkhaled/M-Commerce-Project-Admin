@@ -28,6 +28,8 @@ class ProductViewModel {
 
             if let mydata = dataValue {
                 self.AllBrandProducts = mydata
+                print("num products for brand : ")
+                print(mydata.products.count)
                 self.bindresultToProductsViewController()
 
             }else {
