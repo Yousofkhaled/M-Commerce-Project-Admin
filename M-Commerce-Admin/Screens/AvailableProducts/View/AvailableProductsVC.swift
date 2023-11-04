@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AvailableProductsVC: UIViewController {
+class AvailableProductsVC: UIViewController, cell_delegate {
     // MARK: - Variables
 
     @IBOutlet weak var availableProductsCollectionView: UICollectionView!
@@ -76,6 +76,11 @@ extension AvailableProductsVC:UICollectionViewDataSource {
         cell.layer.cornerRadius = 20
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;
+        
+        cell.product_id? = Int(productviewModel.getProductID(index: indexPath.item))
+        cell.deletion_delegate = self
+        
+        
         return cell
     }
     

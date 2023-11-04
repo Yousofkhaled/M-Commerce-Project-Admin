@@ -465,8 +465,51 @@ class NetworkServices   {
         }
     }
     
+    func deleteProductById(ProductId : Int64, Handler: @escaping (Error?)-> Void){
+            let Url = "https://ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/products/\(ProductId).json"
+            AF.request(Url,method: Alamofire.HTTPMethod.delete, headers: ["X-Shopify-Access-Token":"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"]).response { data in
+                switch data.result {
+                case .success(_):
+                    print("success from deleteProductById")
+                    Handler(nil)
+                    break
+                case .failure(let error):
+                  Handler(error)
+                }
+            }
+            
+        }
+    
+    func deletePriceRuleById(priceRuleId : Int64, Handler: @escaping (Error?)-> Void){
+            let Url = "https://ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/price_rules/\(priceRuleId).json"
+            AF.request(Url,method: Alamofire.HTTPMethod.delete, headers: ["X-Shopify-Access-Token":"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"]).response { data in
+                switch data.result {
+                case .success(_):
+                   
+                    Handler(nil)
+                    break
+                case .failure(let error):
+                  Handler(error)
+                }
+            }
+            
+        }
     
     
+    func deleteDiscountById(priceRuleId : Int64,discountId : Int64 , Handler: @escaping (Error?)-> Void){
+            let Url = "https://ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/price_rules/\(priceRuleId)/discount_codes/\(discountId).json"
+            AF.request(Url,method: Alamofire.HTTPMethod.delete, headers: ["X-Shopify-Access-Token":"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"]).response { data in
+                switch data.result {
+                case .success(_):
+                   
+                    Handler(nil)
+                    break
+                case .failure(let error):
+                  Handler(error)
+                }
+            }
+            
+        }
     
     
 }

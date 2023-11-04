@@ -12,7 +12,7 @@ protocol reload_me {
     func update_me()
 }
 
-class PriceRulesViewController: UIViewController, reload_me {
+class PriceRulesViewController: UIViewController, reload_me, price_rule_deletion {
     // MARK: - Variables
     @IBOutlet weak var offersCollectionView: UICollectionView!
     var priceRuleViewModel = PriceRuleViewModel()
@@ -67,6 +67,10 @@ extension PriceRulesViewController:UICollectionViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;
         cell.configureCellUI(discountName: priceRuleViewModel.getpriceRuleTitle(index: indexPath.row), PriceDiscountBody: priceRuleViewModel.setFourthLabel(index: indexPath.row), startDate: priceRuleViewModel.getStartDate(index: indexPath.row), endDate: priceRuleViewModel.getEndDate(index: indexPath.row), usageNumber: priceRuleViewModel.getMaxUsage(index: indexPath.row))
+        
+        cell.deletion_delegate = self
+        cell.price_rule_id = priceRuleViewModel.getpriceRuleId(index: indexPath.item)
+        
         return cell
     }
     
