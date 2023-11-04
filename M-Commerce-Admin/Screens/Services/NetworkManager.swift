@@ -384,6 +384,57 @@ class NetworkServices   {
     }
     
     
+    func edit_variant_price (variant_id: Int, variant_price : String, Handler: @escaping () -> Void) {
+        let urlFile = "https://ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/variants/\(variant_id).json"
+        
+        let body: [String: Any] = [
+            
+            "variant":["id":42798192099478,"price":"\(variant_price)"]
+        
+        ]
+        
+        AF.request(urlFile,method: Alamofire.HTTPMethod.put, parameters: body, headers: ["X-Shopify-Access-Token":"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"]).response { data in
+            switch data.result {
+            case .success(_):
+                print("success from edit edit_variant_price")
+                Handler()
+                break
+            case .failure(let error):
+                print("in edit edit_variant_price in network manager")
+                print(error)
+            }
+        }
+    }
+    
+    func edit_product_data (product_id: Int, product_title : String, product_tags : String, product_description body_html : String, Handler: @escaping () -> Void) {
+        let urlFile = "https://ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/products/\(product_id).json"
+        
+        let body: [String: Any] = [
+            
+            "product": [
+                    "id": product_id,
+                    "title": product_title,
+                    "tags": product_tags,
+                    "body_html": body_html
+                ]
+        
+        ]
+        
+        AF.request(urlFile,method: Alamofire.HTTPMethod.put, parameters: body, headers: ["X-Shopify-Access-Token":"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"]).response { data in
+            switch data.result {
+            case .success(_):
+                print("success from edit edit_product_data")
+                Handler()
+                break
+            case .failure(let error):
+                print("in edit edit_product_data in network manager")
+                print(error)
+            }
+        }
+    }
+    
+    
+    
     
     
 }

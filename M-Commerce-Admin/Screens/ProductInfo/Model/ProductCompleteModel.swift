@@ -20,6 +20,7 @@ struct VariantCompleteModel : Codable {
     var option3 : String?
     var inventory_quantity : Int?
     var inventory_item_id : Int?
+    var id : Int?
 }
 struct OptionCompleteModel : Codable {
     var name : String?
