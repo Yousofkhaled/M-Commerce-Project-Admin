@@ -135,8 +135,23 @@ func getNumberOfProducts() -> Int? {
     
     func getPrice(index: Int) -> String?{
      
-        return getAllProducts?.products[index].variants?[0].price
+        return getAllProducts?.products[index].variants?[0].price ?? "0 $"
     }
+    func getBrand(index: Int) -> String{
+     
+        return getAllProducts?.products[index].vendor ?? "Error"
+    }
+    func getQuantity(index : Int) -> Int {
+        guard let all_variants = getAllProducts?.products[index].variants else {
+            return 0
+        }
+        var ret = 0;
+        for v in all_variants {
+            ret += v.inventory_quantity!
+        }
+        return ret;
+    }
+    
     func getProductID(index : Int ) -> Int64{
         return getAllProducts?.products[index].id ?? 7827742130326
     }

@@ -72,10 +72,14 @@ extension AllProductViewController:UICollectionViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;
         
+        var index = indexPath.row
+        
         cell.productName.text = categoryViewModel.getTitle(index: indexPath.row)
         cell.productImage.downloadImageFrom(categoryViewModel.getImage(index: indexPath.row))
         
-        cell.productPrice.text
+        cell.productPrice.text = categoryViewModel.getPrice(index: index)
+        cell.productBrand.text = categoryViewModel.getBrand(index: index)
+        cell.productQuantity.text = "\(categoryViewModel.getQuantity(index: index)) in stock"
         
 //        cell.productQuantity.text = categoryViewModel
         
