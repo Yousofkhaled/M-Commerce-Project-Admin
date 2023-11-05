@@ -446,7 +446,7 @@ class NetworkServices   {
                     "vendor": product_vendor,
                     "product_type": product_type,
                     "variants":[
-                        ["option1":"1", "option2" : "black","price":"0.00","sku":"123"]],
+                        ["inventory_management": "shopify", "option1":"1", "option2" : "black","price":"0.00","sku":"123"]],
                     "options":[["name":"Size","values":["1"]], ["name":"Color","values":["black"]]]
                 ]
         
