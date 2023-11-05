@@ -54,9 +54,18 @@
                                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                             </collectionViewFlowLayout>
                                                         </collectionView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neF-sc-J3h">
+                                                            <rect key="frame" x="323.33333333333331" y="20.000000000000004" width="49.666666666666686" height="34.333333333333343"/>
+                                                            <buttonConfiguration key="configuration" style="filled"/>
+                                                            <connections>
+                                                                <action selector="add_image_tapped:" destination="-1" eventType="touchUpInside" id="b2u-bU-PLM"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
+                                                        <constraint firstItem="neF-sc-J3h" firstAttribute="trailing" secondItem="pUR-Te-URW" secondAttribute="trailing" id="9QD-vr-9Ys"/>
                                                         <constraint firstAttribute="trailing" secondItem="pUR-Te-URW" secondAttribute="trailing" constant="20" id="9Ro-Sa-wNt"/>
+                                                        <constraint firstItem="neF-sc-J3h" firstAttribute="top" secondItem="pUR-Te-URW" secondAttribute="top" id="Abd-QE-gxK"/>
                                                         <constraint firstItem="pUR-Te-URW" firstAttribute="top" secondItem="ffq-m1-exZ" secondAttribute="top" constant="20" id="Jh0-wJ-bPm"/>
                                                         <constraint firstAttribute="bottom" secondItem="pUR-Te-URW" secondAttribute="bottom" id="nls-oT-Fem"/>
                                                         <constraint firstItem="pUR-Te-URW" firstAttribute="leading" secondItem="ffq-m1-exZ" secondAttribute="leading" constant="20" id="sdf-xW-8TT"/>

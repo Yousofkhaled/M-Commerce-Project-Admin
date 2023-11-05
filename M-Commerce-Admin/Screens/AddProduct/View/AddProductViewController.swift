@@ -15,6 +15,9 @@ class AddProductViewController: UIViewController {
     @IBOutlet weak var typeTextField: UITextField!
     @IBOutlet weak var vendorTextField: UITextField!
     
+    @IBOutlet weak var image_url_text_field: UITextField!
+    
+    
     var vendor_name : String?
     var view_model : AddProductViewModel = AddProductViewModel()
     
@@ -44,16 +47,18 @@ class AddProductViewController: UIViewController {
     // MARK: - Actions
     @IBAction func nextViewBrnTapped(_ sender: Any) {
         
-        var title_str : String, vendor_str : String, type_str : String, description_str : String;
+        var title_str : String, vendor_str : String, type_str : String,
+        description_str : String, img_str : String;
         
         title_str = titleTextField.text!
         vendor_str = vendorTextField.text!
         type_str = typeTextField.text!
         description_str = descriptionTextField.text!
+        img_str = image_url_text_field.text!
         
         print("I am pressed")
         
-        view_model.addNewProduct(title_str: title_str, vendor_str: vendor_str, type_str: type_str, description_str: description_str)
+        view_model.addNewProduct(title_str: title_str, vendor_str: vendor_str, type_str: type_str, description_str: description_str, img_str : img_str)
        
     }
     

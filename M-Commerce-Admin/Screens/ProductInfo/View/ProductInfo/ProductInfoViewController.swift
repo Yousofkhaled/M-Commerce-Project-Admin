@@ -9,6 +9,44 @@ import UIKit
 
 class ProductInfoViewController: UIViewController, ProductInfoDelegate {
     
+    // add image
+    @IBAction func add_image_tapped(_ sender: UIButton) {
+        
+        //1. Create the alert controller.
+        var alert = UIAlertController(title: "Add image", message: "Enter new image URL", preferredStyle: .alert)
+
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField(configurationHandler: { (textField) -> Void in
+            textField.placeholder = "Enter image URL"
+        })
+        
+
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [self, weak alert] (action) -> Void in
+            let imgField = (alert?.textFields![0])! as UITextField
+            
+            var img_src = imgField.text ?? ""
+            
+            if (img_src == "") {
+                let alert = UIAlertController(title: "Alert", message: "Please enter a valid URL", preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            self.view_model.add_image(image_str: img_src)
+            
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak alert] (action) -> Void in
+            // do nothing
+        }))
+        
+
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     // cart code------------------------------------------------------------------------------
     @IBOutlet weak var variant_price: UILabel!
     
@@ -67,23 +105,7 @@ class ProductInfoViewController: UIViewController, ProductInfoDelegate {
             }
             
             view_model.update_product(product_title: title, product_tags: tags, product_description: description)
-//
-//            guard let availability = Int(availabilityField.text ?? "not ok") else {
-//                let alert = UIAlertController(title: "Alert", message: "Please enter a valid availability", preferredStyle: UIAlertController.Style.alert)
-//                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-//                self.present(alert, animated: true, completion: nil)
-//
-//                return
-//            }
-//
-//            self.view_model.updateVariant(variant_id: self.variant_Unique_ID, inventory_item_id: self.variant_Inventory_item_ID, inventory_quantity: availability, price: "\(price)")
-            
-            
-//            self.manager.addDiscountCode(priceRuleId: self.priceRuleId, codeStr: textField.text ?? "empty str") {
-//                self.discountViewModel.getDiscountCodes(priceRuleId: self.priceRuleId)
-//            }
-            
-//            println("Text field: \(textField.text)")
+
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak alert] (action) -> Void in
             // do nothing
@@ -141,10 +163,6 @@ class ProductInfoViewController: UIViewController, ProductInfoDelegate {
             
             self.view_model.updateVariant(variant_id: self.variant_Unique_ID, inventory_item_id: self.variant_Inventory_item_ID, inventory_quantity: availability, price: "\(price)")
             
-            
-//            self.manager.addDiscountCode(priceRuleId: self.priceRuleId, codeStr: textField.text ?? "empty str") {
-//                self.discountViewModel.getDiscountCodes(priceRuleId: self.priceRuleId)
-//            }
             
 //            println("Text field: \(textField.text)")
         }))
@@ -538,11 +556,6 @@ extension ProductInfoViewController : UICollectionViewDataSource, UICollectionVi
             let cell = productImagesCollectionView.dequeueReusableCell(withReuseIdentifier: "CopounCollectionViewCell", for: indexPath) as! CopounCollectionViewCell
             
             cell.configure(with: "coupon")
-            
-//            let img = UIImageView()
-//            img.downloadImageFrom(view_model.product?.images[indexPath.item].src)
-//            img.frame.size.height = img.superview?.frame.size.height ?? img.frame.size.height
-//            img.frame.size.width = img.superview?.frame.size.width ?? img.frame.size.height
             
             cell.couponImageView.downloadImageFrom(view_model.product?.images[indexPath.item].src)
 

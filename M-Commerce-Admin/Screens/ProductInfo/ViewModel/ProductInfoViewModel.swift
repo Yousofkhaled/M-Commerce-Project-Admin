@@ -85,12 +85,18 @@ class ProductInfoViewModel {
     }
     
     func update_product (product_title: String, product_tags: String, product_description: String) {
-        var product_id : Int = product?.id ?? -1
+        let product_id : Int = product?.id ?? -1
         
         networkManager.edit_product_data(product_id: product_id, product_title: product_title, product_tags: product_tags, product_description: product_description) {
             
             self.initializeProduct()
             
+        }
+    }
+    
+    func add_image (image_str : String) {
+        networkManager.add_product_image(product_id: Int(product!.id!), img_str: image_str) {
+            self.initializeProduct()
         }
     }
     
