@@ -73,6 +73,14 @@ extension AvailableProductsVC:UICollectionViewDataSource {
         cell.productName.text = productviewModel.getTitle(index: indexPath.row)
         cell.productImage.downloadImageFrom(productviewModel.getid(index: indexPath.row))
         
+        cell.productBrand.text = productviewModel.get_brand(index: indexPath.item)
+//        cell.productQuantity.text = "\(productviewModel.get_quantity(index: indexPath.item)) in stock"
+        
+        var id = productviewModel.getProductID(index: indexPath.item)
+        
+        cell.productPrice.text = productviewModel.getPrice(index: indexPath.item)
+        cell.productQuantity.text = "\(productviewModel.getAmount(index: indexPath.item)) in stock"
+        
         cell.layer.cornerRadius = 20
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;

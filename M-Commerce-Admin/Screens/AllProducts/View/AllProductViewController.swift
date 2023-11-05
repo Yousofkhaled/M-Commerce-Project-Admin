@@ -75,6 +75,10 @@ extension AllProductViewController:UICollectionViewDataSource {
         cell.productName.text = categoryViewModel.getTitle(index: indexPath.row)
         cell.productImage.downloadImageFrom(categoryViewModel.getImage(index: indexPath.row))
         
+        cell.productPrice.text
+        
+//        cell.productQuantity.text = categoryViewModel
+        
         cell.product_id = Int(categoryViewModel.getProductID(index: indexPath.item))
         cell.deletion_delegate = self
         

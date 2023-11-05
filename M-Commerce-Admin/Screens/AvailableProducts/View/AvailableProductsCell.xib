@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,28 +25,28 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="EVz-S7-Btj">
-                        <rect key="frame" x="138" y="17.000000000000007" width="174" height="111.66666666666669"/>
+                        <rect key="frame" x="138" y="17.000000000000007" width="221" height="111.66666666666669"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asic Tiger | Gyl - Lyte" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7es-iO-FT2">
-                                <rect key="frame" x="0.0" y="0.0" width="174" height="21.666666666666668"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asic Tiger | Gyl - Lyte" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7es-iO-FT2">
+                                <rect key="frame" x="0.0" y="0.0" width="221" height="21.666666666666668"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asic Tiger - Shoes" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfZ-Gk-WJY">
-                                <rect key="frame" x="0.0" y="34.666666666666664" width="174" height="17"/>
+                                <rect key="frame" x="0.0" y="34.666666666666664" width="221" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19 In Stock" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IoS-JN-4Qc">
-                                <rect key="frame" x="0.0" y="64.666666666666671" width="174" height="17"/>
+                                <rect key="frame" x="0.0" y="64.666666666666671" width="221" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="220.00$" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQa-xT-SV5">
-                                <rect key="frame" x="0.0" y="94.666666666666671" width="174" height="17"/>
+                                <rect key="frame" x="0.0" y="94.666666666666671" width="221" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -59,6 +58,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstItem="ZWZ-e9-E43" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="3dk-dY-56W"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="EVz-S7-Btj" secondAttribute="trailing" constant="10" id="PPF-M0-tFh"/>
                 <constraint firstItem="ZWZ-e9-E43" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="RcU-nF-GZn"/>
                 <constraint firstItem="EVz-S7-Btj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="17" id="VBL-Fy-qDk"/>
                 <constraint firstItem="EVz-S7-Btj" firstAttribute="leading" secondItem="ZWZ-e9-E43" secondAttribute="trailing" constant="8" symbolic="YES" id="lgx-Nz-ErV"/>
@@ -75,7 +75,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="adidasBag" width="840" height="840"/>
+        <image name="adidasBag" width="0.0" height="0.0"/>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
