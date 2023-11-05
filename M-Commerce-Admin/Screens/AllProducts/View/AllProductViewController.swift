@@ -30,6 +30,12 @@ class AllProductViewController: UIViewController , cell_delegate{
         configureLoadingDataFromApi()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        configureLoadingDataFromApi()
+
+    }
+    
     private func configureCollectionView() {
         allProuductCollectionView.dataSource = self
         allProuductCollectionView.delegate = self
@@ -72,12 +78,12 @@ extension AllProductViewController:UICollectionViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;
         
-        var index = indexPath.row
+        let index = indexPath.row
         
         cell.productName.text = categoryViewModel.getTitle(index: indexPath.row)
         cell.productImage.downloadImageFrom(categoryViewModel.getImage(index: indexPath.row))
         
-        cell.productPrice.text = categoryViewModel.getPrice(index: index)
+        cell.productPrice.text = (categoryViewModel.getPrice(index: index) ?? "0") + "$"
         cell.productBrand.text = categoryViewModel.getBrand(index: index)
         cell.productQuantity.text = "\(categoryViewModel.getQuantity(index: index)) in stock"
         

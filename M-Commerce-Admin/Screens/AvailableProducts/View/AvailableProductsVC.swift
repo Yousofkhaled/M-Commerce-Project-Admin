@@ -33,6 +33,14 @@ class AvailableProductsVC: UIViewController, cell_delegate {
         configureLoadingDataFromApi()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        configureLoadingDataFromApi()
+
+    }
+    
+    
+    
     func configureLoadingDataFromApi(){
       
             productviewModel.getDataFromApiForProduct()
