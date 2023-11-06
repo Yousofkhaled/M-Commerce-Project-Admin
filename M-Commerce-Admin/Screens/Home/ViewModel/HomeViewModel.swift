@@ -38,7 +38,7 @@ class HomeViewModel{
     
     //MARK: -CAll Request of Api
     func getDataFromApiForHome() {
-        services.getData(Handler: { (dataValue:Brands?, error: Error?) in
+        services.getBrands(Handler: { (dataValue:Brands?, error: Error?) in
             print("Success")
 
             if let mydata = dataValue {

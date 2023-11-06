@@ -54,13 +54,14 @@ class ProductViewModel {
     
     
     
-    let dispatchGroup = DispatchGroup()
+    //var dispatchGroup = DispatchGroup()
     
     func getCompleteModels () {
-        
+        var dispatchGroup = DispatchGroup()
         for p in AllBrandProducts!.products {
+            
             dispatchGroup.enter()
-            manager.getData(endPoint: EndPoint.product_info(ProductID: p.id!), Handler: { (dataValue:AllProducts?, error: Error?) in
+            manager.getData(endPoint: EndPoint.product_info(ProductID: p.id!), Handler: { [dispatchGroup] (dataValue:AllProducts?, error: Error?) in
                 print("Success")
 
                 if let mydata = dataValue {
@@ -74,7 +75,7 @@ class ProductViewModel {
                         print(error.localizedDescription)
                     }
                 }
-                self.dispatchGroup.leave()
+                dispatchGroup.leave()
             })
         }
         

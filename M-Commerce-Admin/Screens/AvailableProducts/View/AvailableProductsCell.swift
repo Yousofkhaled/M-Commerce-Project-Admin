@@ -24,13 +24,15 @@ class AvailableProductsCell: UICollectionViewCell, UIContextMenuInteractionDeleg
             let delete = UIAction(title : "delete") { (_) in
                 print ("press delete")
                 // delete action here
-                self.manager.deleteProductById(ProductId: Int64(self.product_id!)) { _ in
+                self.manager.deleteProductById(ProductId: Int64(self.product_id)) { _ in
                     self.deletion_delegate?.configureLoadingDataFromApi()
                 }
                 
             }
             let cancel = UIAction(title : "cancel") { (_) in
                 print("cancel")
+                
+                print(self.product_id)
                 // cancel action here
             }
             
@@ -51,7 +53,7 @@ class AvailableProductsCell: UICollectionViewCell, UIContextMenuInteractionDeleg
     @IBOutlet weak var productImage: UIImageView!
     
     
-    var product_id : Int?
+    var product_id : Int = 0
     
     var deletion_delegate : cell_delegate?
     

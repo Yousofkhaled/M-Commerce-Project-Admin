@@ -93,7 +93,12 @@ extension AvailableProductsVC:UICollectionViewDataSource {
         cell.layer.borderWidth = 1
         cell.layer.borderColor = UIColor.lightGray.cgColor;
         
-        cell.product_id? = Int(productviewModel.getProductID(index: indexPath.item))
+        cell.product_id = Int(productviewModel.getProductID(index: indexPath.item))
+        
+        print("here", "\(productviewModel.getTitle(index: indexPath.row))", Int(productviewModel.getProductID(index: indexPath.item)))
+        
+        
+        
         cell.deletion_delegate = self
         
         

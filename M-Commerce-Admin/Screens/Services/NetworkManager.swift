@@ -116,7 +116,7 @@ class NetworkManager {
 class NetworkServices   {
     
     //MARK: - Fetching Data From Api
-    func getData<T :Codable>(Handler: @escaping (T?,Error?) -> Void) {
+    func getBrands<T :Codable>(Handler: @escaping (T?,Error?) -> Void) {
         let urlFile = "https://a6cdf13b3aee85b07964a84ccc1bd762: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@ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/smart_collections.json"
         
         AF.request(urlFile,method: Alamofire.HTTPMethod.get).response { data in
@@ -126,10 +126,10 @@ class NetworkServices   {
                     print("Success")
                     Handler(dataRetivied, nil)
                     
-                    let ggg = dataRetivied as! Brands
-                    print("===================================")
-                    print(ggg.smart_collections[0].title )
-                    print("===================================")
+//                    let ggg = dataRetivied as! Brands
+//                    print("===================================")
+//                    print(ggg.smart_collections[0].title )
+//                    print("===================================")
                 }catch let error{
                     print (error)
                     Handler(nil, error)
@@ -435,7 +435,7 @@ class NetworkServices   {
     
     
     
-    func add_new_product (product_title : String, product_vendor : String, product_type : String, product_description body_html : String, img_str: String, Handler: @escaping () -> Void) {
+    func add_new_product (product_title : String, product_vendor : String, product_type : String, product_description body_html : String, img_str: String, Handler: @escaping (_ data : AllProducts?) -> Void) {
         let urlFile = "https://ios-q1-new-capital-admin2-2023.myshopify.com/admin/api/2023-10/products.json"
         
         let body: [String: Any] = [
@@ -457,11 +457,28 @@ class NetworkServices   {
             switch data.result {
             case .success(_):
                 print("success from add_new_product")
-                Handler()
+                
+                if let validData = data.data {
+                    do{
+                        let dataRetivied = try JSONDecoder().decode(AllProducts.self, from: validData)
+                        print("Success22")
+                        
+                        //print(dataRetivied)
+                        
+                        Handler(dataRetivied)
+                        
+                    }catch let error{
+                        print (error)
+                        Handler(nil)
+                    }
+                }
+                else{print("There is error in casting data") ; Handler(nil)}
+                
                 break
             case .failure(let error):
                 print("in add_new_product in network manager")
                 print(error)
+                Handler(nil)
             }
         }
     }

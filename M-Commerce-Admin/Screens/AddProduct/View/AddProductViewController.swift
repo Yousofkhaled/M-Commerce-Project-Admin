@@ -35,9 +35,14 @@ class AddProductViewController: UIViewController {
             
         }
         
+//        view_model.getSmartCollections {
+//            print("smart collections are done")
+//        }
+        
         view_model.bindresultToHomeViewController = {
             DispatchQueue.main.async {
                 // deque screen
+                print("should dequeue screen")
                 self.bindresultToPreviousController()
                 self.navigationController?.popViewController(animated: true)
             }
