@@ -68,4 +68,7 @@ class LoginVC: UIViewController {
         
         self.present(alert, animated: true)
     }
+    
+    //https://en.afew-store.com/cdn/shop/collections/adidas-originals-stan-smith.jpg?v=1675693543
+    //https://www.sneakerfiles.com/wp-content/uploads/2016/03/adidas-stan-smith-luxe-cork.jpg
 }

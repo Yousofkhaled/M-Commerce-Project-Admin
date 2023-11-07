@@ -21,6 +21,8 @@ class AllProductViewController: UIViewController , cell_delegate{
         super.viewDidLoad()
         configureCollectionView()
         
+        //searchBar.isHidden = true
+        
         categoryViewModel.bindresultToHomeViewController = {
             DispatchQueue.main.async {
                 self.allProuductCollectionView.reloadData()
