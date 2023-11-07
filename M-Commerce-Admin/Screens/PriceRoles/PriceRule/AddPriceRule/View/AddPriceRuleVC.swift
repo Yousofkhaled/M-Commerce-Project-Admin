@@ -23,6 +23,8 @@ class AddPriceRuleVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        usagelimitField.isHidden = true
+        
         view_model.bindresultToHomeViewController = {
             self.price_rules_protocol?.update_me()
         }
@@ -31,8 +33,12 @@ class AddPriceRuleVC: UIViewController {
     }
 
     @IBAction func DonePressed(_ sender: UIButton) {
+        
+        usagelimitField.text! = "10"
+        
+        print ("usagelimitField.text! : ", usagelimitField.text!)
     
-        let arr : [String] = [discountAmountField.text! ,minimumSubtotalField.text!,usagelimitField.text!,TitleField.text!]
+        let arr : [String] = [discountAmountField.text! ,minimumSubtotalField.text!, "10",TitleField.text!]
         var okay = true
         for s in arr {
             if(s.isEmpty){
@@ -41,7 +47,9 @@ class AddPriceRuleVC: UIViewController {
             }
         }
         if !okay {
-            //Alert
+            let alert = UIAlertController(title: "Alert", message: "Please enter complete data", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
         //yyyy-MM-dd’T’HH:mm:ssZ
         else {
@@ -54,7 +62,7 @@ class AddPriceRuleVC: UIViewController {
            let str2 = formatter.string(from: EndsAtDatePicker.date) + "T" + timeFormatter.string(from: EndsAtDatePicker.date) + "Z"
             
             
-            view_model.addPriceRule(title: TitleField.text!, value_type: type, discountAmount:Int(discountAmountField.text!)! , starts_at: str, ends_at: str2, greater_than_or_equal_to: minimumSubtotalField.text!, usage_limit: Int(usagelimitField.text!)!)
+            view_model.addPriceRule(title: TitleField.text!, value_type: type, discountAmount:Int(discountAmountField.text!)! , starts_at: str, ends_at: str2, greater_than_or_equal_to: minimumSubtotalField.text!, usage_limit: Int(10))
         }
        
     }

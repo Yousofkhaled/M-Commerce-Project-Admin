@@ -518,7 +518,7 @@ extension ProductInfoViewController : UICollectionViewDataSource, UICollectionVi
             return 1
         }
         else if (collectionView == reviewsCollectionView) {
-            return 1
+            return 0
         }
         
         return 3

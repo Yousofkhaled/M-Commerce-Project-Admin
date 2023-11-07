@@ -124,7 +124,7 @@ extension DiscountCodeViewController: UICollectionViewDelegate , UICollectionVie
 
 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
    
-        return CGSize(width: discountCollectionView.frame.width - 20  , height: discountCollectionView.frame.height/6)
+        return CGSize(width: discountCollectionView.frame.width - 20  , height: discountCollectionView.frame.height/12)
         
     }
 }
