@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="CL8-Hz-EYc">
-                    <rect key="frame" x="0.0" y="125" width="393" height="693"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ha4-Xz-Ex3">
                         <size key="itemSize" width="128" height="128"/>
@@ -45,13 +44,18 @@
                         <action selector="addBtnTapped:" destination="-1" eventType="touchUpInside" id="SNQ-h7-MrL"/>
                     </connections>
                 </button>
-                <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="7u3-fQ-n5w">
-                    <rect key="frame" x="5" y="64" width="383" height="56"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="Ifh-Fg-G6u"/>
-                    </connections>
-                </searchBar>
+                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zuG-fq-TTg">
+                    <rect key="frame" x="5" y="64" width="0.0" height="0.0"/>
+                    <subviews>
+                        <searchBar hidden="YES" contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="7u3-fQ-n5w">
+                            <rect key="frame" x="0.0" y="0.0" width="383" height="0.0"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="Ifh-Fg-G6u"/>
+                            </connections>
+                        </searchBar>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,11 +63,8 @@
                 <constraint firstItem="CL8-Hz-EYc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="05y-b0-NXs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Gpn-su-Hv7" secondAttribute="bottom" id="4Xy-V2-9nZ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CL8-Hz-EYc" secondAttribute="trailing" id="92Y-Ll-gy9"/>
-                <constraint firstItem="7u3-fQ-n5w" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="5" id="Cv6-9U-veo"/>
-                <constraint firstItem="CL8-Hz-EYc" firstAttribute="top" secondItem="7u3-fQ-n5w" secondAttribute="bottom" constant="5" id="dar-mW-Byp"/>
-                <constraint firstItem="7u3-fQ-n5w" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="dvr-ms-8jR"/>
+                <constraint firstItem="CL8-Hz-EYc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="dYk-I9-vmz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gpn-su-Hv7" secondAttribute="trailing" constant="5" id="dyY-Tw-UMD"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7u3-fQ-n5w" secondAttribute="trailing" constant="5" id="fBB-qj-7VO"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CL8-Hz-EYc" secondAttribute="bottom" id="p5N-99-Ixc"/>
             </constraints>
             <point key="canvasLocation" x="136.64122137404578" y="19.718309859154932"/>

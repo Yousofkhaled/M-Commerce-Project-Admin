@@ -17,11 +17,12 @@ class BrandsCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     // MARK: - configure Nib
-    func configure(with imageName: String , titleText: String) {
-        
-//        brandsImageView.downloadImageFrom(imageName)
-        if let titleLabel = brandsNamesLabel {
-            titleLabel.text = titleText
+        func configure(with imageName: String , titleText: String) {
+            
+            brandsImageView.downloadImageFrom(imageName)
+            if let titleLabel = brandsNamesLabel {
+                titleLabel.text = titleText
+            }
         }
     }
-}
+
